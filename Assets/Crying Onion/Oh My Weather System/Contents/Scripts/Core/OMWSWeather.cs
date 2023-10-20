@@ -364,7 +364,6 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
         #region Ecosystem 
 
-
         public List<OMWSEcosystem> ecosystems;
 
         [OMWSWeightedWeather]
@@ -1155,128 +1154,186 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
                 gradientExponent = Mathf.Lerp(start.gradientExponent.GetFloatValue(dayPercentage),
                     end.gradientExponent.GetFloatValue(dayPercentage), div);
+
                 acScale = Mathf.Lerp(start.acScale.GetFloatValue(dayPercentage),
                     end.acScale.GetFloatValue(dayPercentage), div);
+
                 ambientLightHorizonColor = Color.Lerp(start.ambientLightHorizonColor.GetColorValue(dayPercentage),
                     end.ambientLightHorizonColor.GetColorValue(dayPercentage), div);
+
                 ambientLightZenithColor = Color.Lerp(start.ambientLightZenithColor.GetColorValue(dayPercentage),
                     end.ambientLightZenithColor.GetColorValue(dayPercentage), div);
+
                 ambientLightMultiplier = Mathf.Lerp(start.ambientLightMultiplier.GetFloatValue(dayPercentage),
                     end.ambientLightMultiplier.GetFloatValue(dayPercentage), div);
+
                 atmosphereBias = Mathf.Lerp(start.atmosphereBias.GetFloatValue(dayPercentage),
                     end.atmosphereBias.GetFloatValue(dayPercentage), div);
+
                 atmosphereVariationMax = Mathf.Lerp(start.atmosphereVariationMax.GetFloatValue(dayPercentage),
                     end.atmosphereVariationMax.GetFloatValue(dayPercentage), div);
+
                 atmosphereVariationMin = Mathf.Lerp(start.atmosphereVariationMin.GetFloatValue(dayPercentage),
                     end.atmosphereVariationMin.GetFloatValue(dayPercentage), div);
+
                 chemtrailsMoveSpeed = Mathf.Lerp(start.chemtrailsMoveSpeed.GetFloatValue(dayPercentage),
                     end.chemtrailsMoveSpeed.GetFloatValue(dayPercentage), div);
+
                 cirroMoveSpeed = Mathf.Lerp(start.cirroMoveSpeed.GetFloatValue(dayPercentage),
                     end.cirroMoveSpeed.GetFloatValue(dayPercentage), div);
+
                 cirrusMoveSpeed = Mathf.Lerp(start.cirrusMoveSpeed.GetFloatValue(dayPercentage),
                     end.cirrusMoveSpeed.GetFloatValue(dayPercentage), div);
+
                 clippingThreshold = Mathf.Lerp(start.clippingThreshold.GetFloatValue(dayPercentage),
                     end.clippingThreshold.GetFloatValue(dayPercentage), div);
+
                 cloudCohesion = Mathf.Lerp(start.cloudCohesion.GetFloatValue(dayPercentage),
                     end.cloudCohesion.GetFloatValue(dayPercentage), div);
+
                 cloudColor = Color.Lerp(start.cloudColor.GetColorValue(dayPercentage),
                     end.cloudColor.GetColorValue(dayPercentage), div);
+
                 cloudDetailAmount = Mathf.Lerp(start.cloudDetailAmount.GetFloatValue(dayPercentage),
                     end.cloudDetailAmount.GetFloatValue(dayPercentage), div);
+
                 cloudDetailScale = Mathf.Lerp(start.cloudDetailScale.GetFloatValue(dayPercentage),
                     end.cloudDetailScale.GetFloatValue(dayPercentage), div);
+
                 cloudHighlightColor = Color.Lerp(start.cloudHighlightColor.GetColorValue(dayPercentage),
                     end.cloudHighlightColor.GetColorValue(dayPercentage), div);
+
                 cloudMainScale = Mathf.Lerp(start.cloudMainScale.GetFloatValue(dayPercentage),
                     end.cloudMainScale.GetFloatValue(dayPercentage), div);
+
                 cloudMoonColor = Color.Lerp(start.cloudMoonColor.GetColorValue(dayPercentage),
                     end.cloudMoonColor.GetColorValue(dayPercentage), div);
+
                 cloudMoonHighlightFalloff = Mathf.Lerp(start.cloudMoonHighlightFalloff.GetFloatValue(dayPercentage),
                     end.cloudMoonHighlightFalloff.GetFloatValue(dayPercentage), div);
+
                 cloudSunHighlightFalloff = Mathf.Lerp(start.cloudSunHighlightFalloff.GetFloatValue(dayPercentage),
                     end.cloudSunHighlightFalloff.GetFloatValue(dayPercentage), div);
+
                 cloudTextureColor = Color.Lerp(start.cloudTextureColor.GetColorValue(dayPercentage),
                     end.cloudTextureColor.GetColorValue(dayPercentage), div);
+
                 cloudThickness = Mathf.Lerp(start.cloudThickness.GetFloatValue(dayPercentage),
                     end.cloudThickness.GetFloatValue(dayPercentage), div);
+
                 cloudWindSpeed = Mathf.Lerp(start.cloudWindSpeed.GetFloatValue(dayPercentage),
                     end.cloudWindSpeed.GetFloatValue(dayPercentage), div);
+
                 fogColor1 = Color.Lerp(start.fogColor1.GetColorValue(dayPercentage),
                     end.fogColor1.GetColorValue(dayPercentage), div);
+
                 fogColor2 = Color.Lerp(start.fogColor2.GetColorValue(dayPercentage),
                     end.fogColor2.GetColorValue(dayPercentage), div);
+
                 fogColor3 = Color.Lerp(start.fogColor3.GetColorValue(dayPercentage),
                     end.fogColor3.GetColorValue(dayPercentage), div);
+
                 fogColor4 = Color.Lerp(start.fogColor4.GetColorValue(dayPercentage),
                     end.fogColor4.GetColorValue(dayPercentage), div);
+
                 fogColor5 = Color.Lerp(start.fogColor5.GetColorValue(dayPercentage),
                     end.fogColor5.GetColorValue(dayPercentage), div);
-                fogStart1 = Mathf.Lerp(start.fogStart1,
-                    end.fogStart1, div);
-                fogStart2 = Mathf.Lerp(start.fogStart2,
-                    end.fogStart2, div);
-                fogStart3 = Mathf.Lerp(start.fogStart3,
-                    end.fogStart3, div);
-                fogStart4 = Mathf.Lerp(start.fogStart4,
-                    end.fogStart4, div);
+
+                fogStart1 = Mathf.Lerp(start.fogStart1, end.fogStart1, div);
+
+                fogStart2 = Mathf.Lerp(start.fogStart2, end.fogStart2, div);
+
+                fogStart3 = Mathf.Lerp(start.fogStart3, end.fogStart3, div);
+
+                fogStart4 = Mathf.Lerp(start.fogStart4, end.fogStart4, div);
+
                 fogDensityMultiplier = Mathf.Lerp(start.fogDensityMultiplier.GetFloatValue(dayPercentage),
                     end.fogDensityMultiplier.GetFloatValue(dayPercentage), div);
+
                 fogFlareColor = Color.Lerp(start.fogFlareColor.GetColorValue(dayPercentage),
                     end.fogFlareColor.GetColorValue(dayPercentage), div);
+
                 fogHeight = Mathf.Lerp(start.fogHeight.GetFloatValue(dayPercentage),
                     end.fogHeight.GetFloatValue(dayPercentage), div);
+
                 fogLightFlareFalloff = Mathf.Lerp(start.fogLightFlareFalloff.GetFloatValue(dayPercentage),
                     end.fogLightFlareFalloff.GetFloatValue(dayPercentage), div);
+
                 fogLightFlareIntensity = Mathf.Lerp(start.fogLightFlareIntensity.GetFloatValue(dayPercentage),
                     end.fogLightFlareIntensity.GetFloatValue(dayPercentage), div);
+
                 fogLightFlareSquish = Mathf.Lerp(start.fogLightFlareSquish.GetFloatValue(dayPercentage),
                     end.fogLightFlareSquish.GetFloatValue(dayPercentage), div);
+
                 galaxy1Color = Color.Lerp(start.galaxy1Color.GetColorValue(dayPercentage),
                     end.galaxy1Color.GetColorValue(dayPercentage), div);
+
                 galaxy2Color = Color.Lerp(start.galaxy2Color.GetColorValue(dayPercentage),
                     end.galaxy2Color.GetColorValue(dayPercentage), div);
+
                 galaxy3Color = Color.Lerp(start.galaxy3Color.GetColorValue(dayPercentage),
                     end.galaxy3Color.GetColorValue(dayPercentage), div);
+
                 galaxyIntensity = Mathf.Lerp(start.galaxyIntensity.GetFloatValue(dayPercentage),
                     end.galaxyIntensity.GetFloatValue(dayPercentage), div);
+
                 highAltitudeCloudColor = Color.Lerp(start.highAltitudeCloudColor.GetColorValue(dayPercentage),
                     end.highAltitudeCloudColor.GetColorValue(dayPercentage), div);
+
                 lightScatteringColor = Color.Lerp(start.lightScatteringColor.GetColorValue(dayPercentage),
                     end.lightScatteringColor.GetColorValue(dayPercentage), div);
+
                 moonlightColor = Color.Lerp(start.moonlightColor.GetColorValue(dayPercentage),
                     end.moonlightColor.GetColorValue(dayPercentage), div);
+
                 moonFalloff = Mathf.Lerp(start.moonFalloff.GetFloatValue(dayPercentage),
                     end.moonFalloff.GetFloatValue(dayPercentage), div);
+
                 moonFlareColor = Color.Lerp(start.moonFlareColor.GetColorValue(dayPercentage),
                     end.moonFlareColor.GetColorValue(dayPercentage), div);
+
                 rainbowPosition = Mathf.Lerp(start.rainbowPosition.GetFloatValue(dayPercentage),
                     end.rainbowPosition.GetFloatValue(dayPercentage), div);
+
                 rainbowWidth = Mathf.Lerp(start.rainbowWidth.GetFloatValue(dayPercentage),
                     end.rainbowWidth.GetFloatValue(dayPercentage), div);
+
                 shadowDistance = Mathf.Lerp(start.shadowDistance.GetFloatValue(dayPercentage),
                     end.shadowDistance.GetFloatValue(dayPercentage), div);
+
                 skyHorizonColor = Color.Lerp(start.skyHorizonColor.GetColorValue(dayPercentage),
                     end.skyHorizonColor.GetColorValue(dayPercentage), div);
+
                 skyZenithColor = Color.Lerp(start.skyZenithColor.GetColorValue(dayPercentage),
                     end.skyZenithColor.GetColorValue(dayPercentage), div);
+
                 spherize = Mathf.Lerp(start.spherize.GetFloatValue(dayPercentage),
                     end.spherize.GetFloatValue(dayPercentage), div);
+
                 starColor = Color.Lerp(start.starColor.GetColorValue(dayPercentage),
                     end.starColor.GetColorValue(dayPercentage), div);
+
                 sunColor = Color.Lerp(start.sunColor.GetColorValue(dayPercentage),
                     end.sunColor.GetColorValue(dayPercentage), div);
+
                 sunDirection = Mathf.Lerp(start.sunDirection.GetFloatValue(dayPercentage),
                     end.sunDirection.GetFloatValue(dayPercentage), div);
+
                 sunFalloff = Mathf.Lerp(start.sunFalloff.GetFloatValue(dayPercentage),
                     end.sunFalloff.GetFloatValue(dayPercentage), div);
+
                 sunFlareColor = Color.Lerp(start.sunFlareColor.GetColorValue(dayPercentage),
                     end.sunFlareColor.GetColorValue(dayPercentage), div);
+
                 sunlightColor = Color.Lerp(start.sunlightColor.GetColorValue(dayPercentage),
                     end.sunlightColor.GetColorValue(dayPercentage), div);
+
                 sunPitch = Mathf.Lerp(start.sunPitch.GetFloatValue(dayPercentage),
                     end.sunPitch.GetFloatValue(dayPercentage), div);
+
                 sunSize = Mathf.Lerp(start.sunSize.GetFloatValue(dayPercentage),
                     end.sunSize.GetFloatValue(dayPercentage), div);
+
                 textureAmount = Mathf.Lerp(start.textureAmount.GetFloatValue(dayPercentage),
                     end.textureAmount.GetFloatValue(dayPercentage), div);
 
@@ -1964,7 +2021,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
         public static float MeridiemTimeToDeyPercent(int hours, int minutes, Meridiem meridiem) =>
             ((ConvertTo12to1(hours) + (float)minutes / 60) / 24) + (meridiem == Meridiem.PM ? 0.5f : 0);
 
-        public static float MeridiemTimeToDeyPercent(MeridiemTime time) => 
+        public static float MeridiemTimeToDeyPercent(MeridiemTime time) =>
             ((time.hours + (float)time.minutes / 60) / 12) + (time.meridiem == Meridiem.PM ? 0.5f : 0);
 
         public static int ConvertTo12to1(int value)
@@ -2372,39 +2429,54 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             EditorGUI.indentLevel++;
             if (cloudShader.HasProperty("_WindSpeed"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudWindSpeed"), new GUIContent("Wind Speed", "The speed at which the cloud generation will progress."), false);
+
             if (cloudShader.HasProperty("_ClippingThreshold"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("clippingThreshold"), new GUIContent("Clipping Threshold", "The alpha that the clouds will clip to full alpha at. Default is 0.5"), false);
+
             if (cloudShader.HasProperty("_MainCloudScale"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudMainScale"), new GUIContent("Main Scale", "The scale of the main perlin noise for the cumulus cloud type."), false);
+
             if (cloudShader.HasProperty("_DetailScale"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudDetailScale"), new GUIContent("Detail Scale", "The scale of the secondary voronoi noise functions for the cumulus cloud type."), false);
+
             if (cloudShader.HasProperty("_DetailAmount"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudDetailAmount"), new GUIContent("Detail Amount", "The multiplier for the secondary voronoi noise functions for the cumulus cloud type. Lower values give more cohesive cloud types."), false);
+
             EditorGUILayout.Space(10);
             if (cloudShader.HasProperty("_AltocumulusScale"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("acScale"), new GUIContent("Altocumulus Scale"), false);
+
             if (cloudShader.HasProperty("_CirrostratusMoveSpeed"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cirroMoveSpeed"), new GUIContent("Cirrostratus Movement Speed"), false);
+
             if (cloudShader.HasProperty("_CirrusMoveSpeed"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cirrusMoveSpeed"), new GUIContent("Cirrus Movement Speed"), false);
+
             if (cloudShader.HasProperty("_ChemtrailsMoveSpeed"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("chemtrailsMoveSpeed"), new GUIContent("Chemtrails Movement Speed"), false);
 
 
             if (cloudShader.HasProperty("_CloudTextureColor"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudTextureColor"), new GUIContent("Texture Color Multiplier"), false);
+
             if (cloudShader.HasProperty("_CloudTexture"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudTexture"), new GUIContent("Cloud Texture"), false);
+
             if (cloudShader.HasProperty("_TexturePanDirection"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("texturePanDirection"), new GUIContent("Cloud Texture Pan Direction"), false);
+
             if (cloudShader.HasProperty("_TextureAmount"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("textureAmount"), new GUIContent("Texture Amount"), false);
+
             if (cloudShader.HasProperty("_CloudCohesion"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudCohesion"), new GUIContent("Cloud Cohesion"), false);
+
             if (cloudShader.HasProperty("_Spherize"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("spherize"), new GUIContent("Sphere Distortion"), false);
+
             if (cloudShader.HasProperty("_ShadowingDistance"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("shadowDistance"), new GUIContent("Shadow Distance"), false);
+
             if (cloudShader.HasProperty("_CloudThickness"))
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudThickness"), new GUIContent("Cloud Thickness"), false);
 
@@ -2432,6 +2504,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             EditorGUILayout.Space(5);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudHighlightColor"), new GUIContent("Sun Highlight Color", "The color multiplier for the clouds in a \"dot\" around the sun."), false);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudSunHighlightFalloff"), new GUIContent("Sun Highlight Falloff", "The falloff for the \"dot\" around the sun."), false);
+
             EditorGUILayout.Space(5);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudMoonColor"), new GUIContent("Moon Highlight Color", "The color multiplier for the clouds in a \"dot\" around the moon."), false);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("cloudMoonHighlightFalloff"), new GUIContent("Moon Highlight Falloff", "The falloff for the \"dot\" around the moon."), false);
