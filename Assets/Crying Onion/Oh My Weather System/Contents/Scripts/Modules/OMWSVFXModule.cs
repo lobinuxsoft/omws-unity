@@ -14,12 +14,11 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
     {
         #region Particles
 
-        [SerializeField]
         [Tooltip("Set the color of these particle systems to the star color of the weather system.")]
-        private List<ParticleSystem> m_Stars = new List<ParticleSystem>();
+        [SerializeField] private List<ParticleSystem> m_Stars = new List<ParticleSystem>();
+
         [Tooltip("Set the color of these particle systems to the cloud color of the weather system.")]
-        [SerializeField]
-        private List<ParticleSystem> m_CloudParticles = new List<ParticleSystem>();
+        [SerializeField] private List<ParticleSystem> m_CloudParticles = new List<ParticleSystem>();
 
         #endregion
 
@@ -190,7 +189,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             EditorGUILayout.PropertyField(serializedObject.FindProperty("thunderManager"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("windManager"), true);
 
-            ParticlesTab = EditorGUILayout.BeginFoldoutHeaderGroup(ParticlesTab, new GUIContent("    Miscellaneous Options"), EditorUtilities.FoldoutStyle());
+            ParticlesTab = EditorGUILayout.BeginFoldoutHeaderGroup(ParticlesTab, new GUIContent("    Miscellaneous Options"), OMWSEditorUtilities.FoldoutStyle());
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             if (ParticlesTab)

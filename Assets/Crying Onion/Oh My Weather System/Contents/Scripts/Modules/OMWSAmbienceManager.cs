@@ -82,7 +82,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             if (ambienceProfiles.Count > 0)
                 ambienceProfiles.Clear();
 
-            foreach (OMWSAmbienceProfile i in EditorUtilities.GetAllInstances<OMWSAmbienceProfile>())
+            foreach (OMWSAmbienceProfile i in OMWSEditorUtilities.GetAllInstances<OMWSAmbienceProfile>())
                 if (i.name != "Default Ambience")
                     ambienceProfiles.Add(i);
         }

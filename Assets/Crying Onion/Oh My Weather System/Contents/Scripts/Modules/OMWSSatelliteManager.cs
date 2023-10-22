@@ -181,7 +181,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         public override void DisplayInOMWSWindow()
         {
             serializedObject.Update();
-            manageSatellites = EditorGUILayout.BeginFoldoutHeaderGroup(manageSatellites, new GUIContent("    Manage Satellites"), EditorUtilities.FoldoutStyle());
+            manageSatellites = EditorGUILayout.BeginFoldoutHeaderGroup(manageSatellites, new GUIContent("    Manage Satellites"), OMWSEditorUtilities.FoldoutStyle());
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             if (manageSatellites)

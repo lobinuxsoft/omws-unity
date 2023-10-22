@@ -293,7 +293,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             tooltips = EditorPrefs.GetBool("OMWS_Tooltips", true);
 
             serializedObject.FindProperty("win1").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("win1").boolValue,
-                new GUIContent("    Atmosphere & Lighting", "Skydome, fog, and lighting settings."), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Atmosphere & Lighting", "Skydome, fog, and lighting settings."), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("win1").boolValue)
                 DrawAtmosphereTab(omwsWeather);
@@ -301,7 +301,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             serializedObject.FindProperty("win2").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("win2").boolValue,
-                            new GUIContent("    Clouds", "Cloud color, generation, and variation settings."), EditorUtilities.FoldoutStyle());
+                            new GUIContent("    Clouds", "Cloud color, generation, and variation settings."), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("win2").boolValue)
                 DrawCloudsTab(omwsWeather);
@@ -309,7 +309,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             serializedObject.FindProperty("win3").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("win3").boolValue,
-                            new GUIContent("    Celestials & VFX", "Sun, moon, and light FX settings."), EditorUtilities.FoldoutStyle());
+                            new GUIContent("    Celestials & VFX", "Sun, moon, and light FX settings."), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("win3").boolValue)
                 DrawCelestialsTab(omwsWeather);

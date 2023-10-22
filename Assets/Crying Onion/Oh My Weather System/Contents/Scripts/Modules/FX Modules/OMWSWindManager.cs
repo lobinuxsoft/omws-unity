@@ -158,7 +158,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             Rect tabPos = new Rect(pos.x + 35, pos.y, pos.width - 41, pos.height);
             Rect togglePos = new Rect(5, pos.y, 30, pos.height);
 
-            property.FindPropertyRelative("_OpenTab").boolValue = EditorGUI.BeginFoldoutHeaderGroup(tabPos, property.FindPropertyRelative("_OpenTab").boolValue, new GUIContent("    Wind FX", "Wind FX set the speed and amount of the OMWS windzone and shader-based wind."), EditorUtilities.FoldoutStyle());
+            property.FindPropertyRelative("_OpenTab").boolValue = EditorGUI.BeginFoldoutHeaderGroup(tabPos, property.FindPropertyRelative("_OpenTab").boolValue, new GUIContent("    Wind FX", "Wind FX set the speed and amount of the OMWS windzone and shader-based wind."), OMWSEditorUtilities.FoldoutStyle());
 
             bool toggle = EditorGUI.Toggle(togglePos, GUIContent.none, property.FindPropertyRelative("_IsEnabled").boolValue);
 

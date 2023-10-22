@@ -2142,7 +2142,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             if (j != windowNum)
             {
                 if (j == 3)
-                    mods = EditorUtilities.ResetModuleList();
+                    mods = OMWSEditorUtilities.ResetModuleList();
 
                 windowNum = j;
             }
@@ -2190,7 +2190,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             }
 
             serializedObject.FindProperty("atmosSettingsWindow").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("atmosSettingsWindow").boolValue,
-                new GUIContent("    Selection Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Selection Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("atmosSettingsWindow").boolValue)
             {
@@ -2253,7 +2253,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
         public void DrawNativeAtmosphere()
         {
             serializedObject.FindProperty("win1").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("win1").boolValue,
-              new GUIContent("    Atmosphere & Lighting", "Skydome, fog, and lighting settings."), EditorUtilities.FoldoutStyle());
+              new GUIContent("    Atmosphere & Lighting", "Skydome, fog, and lighting settings."), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("win1").boolValue)
                 DrawAtmosphereTab();
@@ -2261,7 +2261,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             serializedObject.FindProperty("win2").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("win2").boolValue,
-                            new GUIContent("    Clouds", "Cloud color, generation, and variation settings."), EditorUtilities.FoldoutStyle());
+                            new GUIContent("    Clouds", "Cloud color, generation, and variation settings."), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("win2").boolValue)
                 DrawCloudsTab();
@@ -2269,7 +2269,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             serializedObject.FindProperty("win3").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("win3").boolValue,
-                            new GUIContent("    Celestials & VFX", "Sun, moon, and light FX settings."), EditorUtilities.FoldoutStyle());
+                            new GUIContent("    Celestials & VFX", "Sun, moon, and light FX settings."), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("win3").boolValue)
                 DrawCelestialsTab();
@@ -2394,7 +2394,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
         void DrawNativeSettingsTab()
         {
             serializedObject.FindProperty("atmosSettingsWindow").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("atmosSettingsWindow").boolValue,
-                new GUIContent("    Global Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Global Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             if (!serializedObject.FindProperty("atmosSettingsWindow").boolValue)
                 return;
@@ -2649,7 +2649,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             OMWSPerennialProfileEditor timeEditor = CreateEditor(serializedObject.FindProperty("perennialProfile").objectReferenceValue) as OMWSPerennialProfileEditor;
 
             serializedObject.FindProperty("atmosSettingsWindow").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("atmosSettingsWindow").boolValue,
-                new GUIContent("    Selection Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Selection Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("atmosSettingsWindow").boolValue)
             {
@@ -2664,7 +2664,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             serializedObject.FindProperty("timeCurrentWindow").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("timeCurrentWindow").boolValue,
-                new GUIContent("    Current Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Current Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             if (serializedObject.FindProperty("timeCurrentWindow").boolValue)
             {
@@ -2719,7 +2719,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             bool movementWindow = serializedObject.FindProperty("tickMovementWindow").boolValue;
             bool curveWindow = serializedObject.FindProperty("curveWindow").boolValue;
 
-            timeEditor.OnStaticMeasureGUI(EditorUtilities.FoldoutStyle(), ref lengthWindow, ref movementWindow, ref curveWindow);
+            timeEditor.OnStaticMeasureGUI(OMWSEditorUtilities.FoldoutStyle(), ref lengthWindow, ref movementWindow, ref curveWindow);
 
             serializedObject.FindProperty("tickLengthWindow").boolValue = lengthWindow;
             serializedObject.FindProperty("tickMovementWindow").boolValue = movementWindow;
@@ -2739,7 +2739,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             }
 
             serializedObject.FindProperty("atmosSettingsWindow").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("atmosSettingsWindow").boolValue,
-                new GUIContent("    Selection Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Selection Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             EditorGUILayout.EndFoldoutHeaderGroup();
 
@@ -2769,7 +2769,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             if (useSingle)
             {
                 serializedObject.FindProperty("currentWeatherWindow").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("currentWeatherWindow").boolValue,
-                    new GUIContent("    Profile Settings"), EditorUtilities.FoldoutStyle());
+                    new GUIContent("    Profile Settings"), OMWSEditorUtilities.FoldoutStyle());
 
                 EditorGUILayout.EndFoldoutHeaderGroup();
 
@@ -2783,7 +2783,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             else
             {
                 serializedObject.FindProperty("forecastWindow").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("forecastWindow").boolValue,
-                    new GUIContent("    Forecasting Behaviors"), EditorUtilities.FoldoutStyle());
+                    new GUIContent("    Forecasting Behaviors"), OMWSEditorUtilities.FoldoutStyle());
 
                 EditorGUILayout.EndFoldoutHeaderGroup();
 
@@ -2803,7 +2803,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                     EditorGUI.indentLevel--;
                 }
 
-                climate = EditorGUILayout.BeginFoldoutHeaderGroup(climate, new GUIContent("    Climate Settings"), EditorUtilities.FoldoutStyle());
+                climate = EditorGUILayout.BeginFoldoutHeaderGroup(climate, new GUIContent("    Climate Settings"), OMWSEditorUtilities.FoldoutStyle());
 
                 EditorGUILayout.EndFoldoutHeaderGroup();
 
@@ -2827,7 +2827,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             if (tooltips)
                 EditorGUILayout.HelpBox("Add modules using this foldout! Use the reset module list buttone to search for any scripts that derive from OMWSModule and add them to the dropdown.", MessageType.Info, true);
 
-            modules = EditorGUILayout.BeginFoldoutHeaderGroup(modules, "    Modules", EditorUtilities.FoldoutStyle());
+            modules = EditorGUILayout.BeginFoldoutHeaderGroup(modules, "    Modules", OMWSEditorUtilities.FoldoutStyle());
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             if (modules)
@@ -2839,7 +2839,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                 List<string> modNames = new List<string>() { "Select..." };
 
                 if (mods == null)
-                    mods = EditorUtilities.ResetModuleList();
+                    mods = OMWSEditorUtilities.ResetModuleList();
 
                 if (mods.Contains(typeof(OMWSModule)))
                     mods.Remove(typeof(OMWSModule));
@@ -2858,7 +2858,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                 moduleNumber = EditorGUILayout.Popup(new GUIContent("Add New Module"), 0, modNames.ToArray());
 
                 if (GUILayout.Button("Reset Module List"))
-                    EditorUtilities.ResetModuleList();
+                    OMWSEditorUtilities.ResetModuleList();
 
                 EditorGUILayout.EndHorizontal();
 
@@ -2880,7 +2880,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                     if (GUILayout.Button("Remove"))
                     {
                         j = i;
-                        mods = EditorUtilities.ResetModuleList();
+                        mods = OMWSEditorUtilities.ResetModuleList();
                     }
 
                     EditorGUILayout.EndHorizontal();
@@ -2894,7 +2894,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                 EditorGUILayout.Space();
             }
 
-            options = EditorGUILayout.BeginFoldoutHeaderGroup(options, "    Options", EditorUtilities.FoldoutStyle());
+            options = EditorGUILayout.BeginFoldoutHeaderGroup(options, "    Options", OMWSEditorUtilities.FoldoutStyle());
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             if (options)

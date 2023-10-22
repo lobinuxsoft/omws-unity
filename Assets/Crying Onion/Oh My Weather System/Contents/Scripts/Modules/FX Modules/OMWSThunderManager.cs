@@ -138,7 +138,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             Rect tabPos = new Rect(pos.x + 35, pos.y, pos.width - 41, pos.height);
             Rect togglePos = new Rect(5, pos.y, 30, pos.height);
 
-            property.FindPropertyRelative("_OpenTab").boolValue = EditorGUI.BeginFoldoutHeaderGroup(tabPos, property.FindPropertyRelative("_OpenTab").boolValue, new GUIContent("    Thunder FX", "Thunder FX control the rate at which lightning strikes during your weather profiles."), EditorUtilities.FoldoutStyle());
+            property.FindPropertyRelative("_OpenTab").boolValue = EditorGUI.BeginFoldoutHeaderGroup(tabPos, property.FindPropertyRelative("_OpenTab").boolValue, new GUIContent("    Thunder FX", "Thunder FX control the rate at which lightning strikes during your weather profiles."), OMWSEditorUtilities.FoldoutStyle());
 
             bool toggle = EditorGUI.Toggle(togglePos, GUIContent.none, property.FindPropertyRelative("_IsEnabled").boolValue);
 

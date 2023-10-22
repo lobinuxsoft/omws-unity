@@ -287,7 +287,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             serializedObject.Update();
 
             movementWindow = EditorGUILayout.BeginFoldoutHeaderGroup(movementWindow,
-                new GUIContent("    Movement Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Movement Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             if (movementWindow)
             {
@@ -316,7 +316,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             lengthWindow = EditorGUILayout.BeginFoldoutHeaderGroup(lengthWindow,
-                new GUIContent("    Length Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Length Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             EditorGUILayout.EndFoldoutHeaderGroup();
 
@@ -346,7 +346,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             }
 
             curveWindow = EditorGUILayout.BeginFoldoutHeaderGroup(curveWindow,
-                new GUIContent("    Curve Settings"), EditorUtilities.FoldoutStyle());
+                new GUIContent("    Curve Settings"), OMWSEditorUtilities.FoldoutStyle());
 
             EditorGUILayout.EndFoldoutHeaderGroup();
 

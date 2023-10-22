@@ -73,7 +73,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         {
             serializedObject.Update();
 
-            serializedObject.FindProperty("open").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("open").boolValue, $"    {target.name}", EditorUtilities.FoldoutStyle());
+            serializedObject.FindProperty("open").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("open").boolValue, $"    {target.name}", OMWSEditorUtilities.FoldoutStyle());
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             if (serializedObject.FindProperty("open").boolValue)

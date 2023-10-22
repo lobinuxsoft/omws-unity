@@ -108,7 +108,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         {
             serializedObject.Update();
 
-            modulatedValuesOpen = EditorGUILayout.BeginFoldoutHeaderGroup(modulatedValuesOpen, "    Modulated Values", EditorUtilities.FoldoutStyle());
+            modulatedValuesOpen = EditorGUILayout.BeginFoldoutHeaderGroup(modulatedValuesOpen, "    Modulated Values", OMWSEditorUtilities.FoldoutStyle());
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             if (modulatedValuesOpen)
@@ -120,7 +120,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
                 EditorGUI.indentLevel--;
             }
 
-            globalOpen = EditorGUILayout.BeginFoldoutHeaderGroup(globalOpen, "    Global Values", EditorUtilities.FoldoutStyle());
+            globalOpen = EditorGUILayout.BeginFoldoutHeaderGroup(globalOpen, "    Global Values", OMWSEditorUtilities.FoldoutStyle());
             EditorGUILayout.EndFoldoutHeaderGroup();
 
             if (globalOpen)

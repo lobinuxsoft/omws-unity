@@ -59,7 +59,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             Rect tabPos = new Rect(pos.x + 35, pos.y, pos.width - 41, pos.height);
             Rect togglePos = new Rect(5, pos.y, 30, pos.height);
 
-            property.FindPropertyRelative("_OpenTab").boolValue = EditorGUI.BeginFoldoutHeaderGroup(tabPos, property.FindPropertyRelative("_OpenTab").boolValue, new GUIContent("    Precipitation FX", "Precipitation FX allow for snow and rain accumulation in your scene using the material manager."), EditorUtilities.FoldoutStyle());
+            property.FindPropertyRelative("_OpenTab").boolValue = EditorGUI.BeginFoldoutHeaderGroup(tabPos, property.FindPropertyRelative("_OpenTab").boolValue, new GUIContent("    Precipitation FX", "Precipitation FX allow for snow and rain accumulation in your scene using the material manager."), OMWSEditorUtilities.FoldoutStyle());
 
             bool toggle = EditorGUI.Toggle(togglePos, GUIContent.none, property.FindPropertyRelative("_IsEnabled").boolValue);
 
