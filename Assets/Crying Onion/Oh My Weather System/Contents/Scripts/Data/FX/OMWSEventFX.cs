@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 using CryingOnion.OhMy.WeatherSystem.Module;
 using CryingOnion.OhMy.WeatherSystem.Core;
 #if UNITY_EDITOR
@@ -13,7 +11,6 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
     [CreateAssetMenu(menuName = "CryingOnion/Oh My Weather System/FX/Event FX", order = 361)]
     public class OMWSEventFX : OMWSFXProfile
     {
-
         public OMWSEventManager events;
         public bool playing;
 
@@ -41,7 +38,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             {
                 playing = true;
                 if (onCall != null)
-                onCall.Invoke();
+                    onCall.Invoke();
             }
         }
 
@@ -59,7 +56,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             {
                 playing = false;
                 if (onEnd != null)
-                onEnd.Invoke();
+                    onEnd.Invoke();
             }
         }
 

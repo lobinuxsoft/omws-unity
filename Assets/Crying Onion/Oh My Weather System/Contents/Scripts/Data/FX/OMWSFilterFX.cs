@@ -118,7 +118,6 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         }
 
         public override float GetLineHeight() => 6;
-
     }
 #endif
 }
