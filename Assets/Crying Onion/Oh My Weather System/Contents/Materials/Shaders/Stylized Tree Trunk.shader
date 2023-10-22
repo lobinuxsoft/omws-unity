@@ -1,4 +1,4 @@
-Shader "Crying Onion/OMWS/Stlylized Tree Trunk"
+Shader "Crying Onion/OMWS/Stylized Tree Trunk"
 {
 	Properties
 	{

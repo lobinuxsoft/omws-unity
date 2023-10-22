@@ -1,4 +1,4 @@
-Shader "Crying Onion/OMWS/Stlylized Leaves"
+Shader "Crying Onion/OMWS/Stylized Leaves"
 {
 	Properties
 	{
