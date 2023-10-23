@@ -15,7 +15,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
         OMWSAmbienceManager ambienceManager;
 
         public override GUIContent GetGUIContent() =>
-            new GUIContent("    Ambience", (Texture)Resources.Load("Ambience Profile"), "Controls a secondary weather system that runs parallel to the main system allowing for ambient noises and FX.");
+            new GUIContent("", (Texture)Resources.Load("Ambience Profile"), "Ambience: Controls a secondary weather system that runs parallel to the main system allowing for ambient noises and FX.");
 
         void OnEnable()
         {

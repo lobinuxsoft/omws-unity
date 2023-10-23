@@ -173,7 +173,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         protected static bool FXTab;
 
         public override GUIContent GetGUIContent() =>
-            new GUIContent("    VFX", (Texture)Resources.Load("FX Module"), "Manage FX types, particles, and other VFX related options.");
+            new GUIContent("", (Texture)Resources.Load("FX Module"), "VFX: Manage FX types, particles, and other VFX related options.");
 
         void OnEnable() => t = (OMWSVFXModule)target;
 

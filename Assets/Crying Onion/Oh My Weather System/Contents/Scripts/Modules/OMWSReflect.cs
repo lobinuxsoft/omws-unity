@@ -108,7 +108,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         OMWSReflect reflect;
 
         public override GUIContent GetGUIContent() =>
-            new GUIContent("    Reflections", (Texture)Resources.Load("Reflections"), "Sets up a cubemap for reflections with OMWS.");
+            new GUIContent("", (Texture)Resources.Load("Reflections"), "Reflections: Sets up a cubemap for reflections with OMWS.");
 
         void OnEnable() { }
 

@@ -174,7 +174,8 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
 
         private void OnEnable() => t = (OMWSSatelliteManager)target;
 
-        public override GUIContent GetGUIContent() => new GUIContent("    Satellites", (Texture)Resources.Load("OMWSMoon"), "Manage satellites and moons within the OMWS system.");
+        public override GUIContent GetGUIContent() =>
+            new GUIContent("", (Texture)Resources.Load("OMWSMoon"), "Satellites: Manage satellites and moons within the OMWS system.");
 
         public override void OnInspectorGUI() { }
 

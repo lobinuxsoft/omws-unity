@@ -25,7 +25,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         public override GUIContent GetGUIContent()
         {
             //Place your module's GUI content here.
-            return new GUIContent("    Example Module", (Texture)Resources.Load("MoreOptions"), "Empty module to be used as a base for custom modules.");
+            return new GUIContent("", (Texture)Resources.Load("MoreOptions"), "Example Module: Empty module to be used as a base for custom modules.");
         }
 
         void OnEnable() { }

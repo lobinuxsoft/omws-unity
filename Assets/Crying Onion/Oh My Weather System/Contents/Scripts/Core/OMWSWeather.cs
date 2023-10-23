@@ -2101,10 +2101,10 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             List<GUIContent> icons = new List<GUIContent>();
             Rect position = EditorGUILayout.GetControlRect(GUILayout.Height(0));
 
-            icons.Add(new GUIContent("    Atmosphere", (Texture)serializedObject.FindProperty("icon1").objectReferenceValue, "Manage skydome, fog, and lighting settings."));
-            icons.Add(new GUIContent("    Time", (Texture)serializedObject.FindProperty("icon2").objectReferenceValue, "Setup time settings, calendars, and manage current settings."));
-            icons.Add(new GUIContent("    Ecosystem", (Texture)serializedObject.FindProperty("icon3").objectReferenceValue, "Manage weather, climate, and year settings."));
-            icons.Add(new GUIContent("    Settings \n   & Modules", (Texture)serializedObject.FindProperty("icon4").objectReferenceValue, "Adjust the functions of OMWS to get the most out of your system."));
+            icons.Add(new GUIContent("", (Texture)serializedObject.FindProperty("icon1").objectReferenceValue, "Atmosphere: Manage skydome, fog, and lighting settings."));
+            icons.Add(new GUIContent("", (Texture)serializedObject.FindProperty("icon2").objectReferenceValue, "Time: Setup time settings, calendars, and manage current settings."));
+            icons.Add(new GUIContent("", (Texture)serializedObject.FindProperty("icon3").objectReferenceValue, "Ecosystem: Manage weather, climate, and year settings."));
+            icons.Add(new GUIContent("", (Texture)serializedObject.FindProperty("icon4").objectReferenceValue, "Settings & Modules: Adjust the functions of OMWS to get the most out of your system."));
 
             if (tooltips)
             {
@@ -2152,18 +2152,18 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
             EditorGUILayout.Space();
 
-            switch (icons[windowNum].text)
+            switch (windowNum)
             {
-                case ("    Atmosphere"):
+                case 0:
                     Atmos();
                     break;
-                case ("    Time"):
+                case 1:
                     Time();
                     break;
-                case ("    Ecosystem"):
+                case 2:
                     Weather();
                     break;
-                case ("    Settings \n   & Modules"):
+                case 3:
                     Settings();
                     break;
                 default:

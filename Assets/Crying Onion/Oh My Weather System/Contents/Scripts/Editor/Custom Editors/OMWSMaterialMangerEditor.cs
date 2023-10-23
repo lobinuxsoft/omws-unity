@@ -20,7 +20,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
 
         public override void OnInspectorGUI() { }
 
-        public override GUIContent GetGUIContent() => new GUIContent("    Materials", (Texture)Resources.Load("MaterialManager"), "Manages the materials that are affected by the OMWS system.");
+        public override GUIContent GetGUIContent() => new GUIContent("", (Texture)Resources.Load("MaterialManager"), "Materials: Manages the materials that are affected by the OMWS system.");
 
         public override void DisplayInOMWSWindow()
         {

@@ -111,7 +111,8 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         protected static bool weatherEvents;
         protected static bool eventSettings;
 
-        public override GUIContent GetGUIContent() => new GUIContent("    Events", (Texture)Resources.Load("Events"), "Setup Unity events that directly integrate into the OMWS system.");
+        public override GUIContent GetGUIContent() =>
+            new GUIContent("", (Texture)Resources.Load("Events"), "Events: Setup Unity events that directly integrate into the OMWS system.");
 
         void OnEnable() { }
 

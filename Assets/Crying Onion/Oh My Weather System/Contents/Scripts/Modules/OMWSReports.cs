@@ -39,7 +39,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         void OnEnable() => t = (OMWSReports)target;
 
         public override GUIContent GetGUIContent() =>
-            new GUIContent("    Reports", (Texture)Resources.Load("Reports"), "Passes information on the current weather system to the editor.");
+            new GUIContent("", (Texture)Resources.Load("Reports"), "Reports: Passes information on the current weather system to the editor.");
 
         public override void OnInspectorGUI() { }
 

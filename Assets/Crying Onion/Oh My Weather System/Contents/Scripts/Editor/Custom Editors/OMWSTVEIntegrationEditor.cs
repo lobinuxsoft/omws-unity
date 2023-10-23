@@ -12,11 +12,10 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
         SerializedProperty updateFrequency;
         OMWSTVEModule module;
 
-
         void OnEnable() { }
 
         public override GUIContent GetGUIContent() =>
-            new GUIContent("    TVE Control", (Texture)Resources.Load("Integration"), "Links the OMWS system with the vegetation engine by BOXOPHOBIC.");
+            new GUIContent("", (Texture)Resources.Load("Integration"), "TVE Control: Links the OMWS system with the vegetation engine by BOXOPHOBIC.");
 
         public override void DisplayInOMWSWindow()
         {

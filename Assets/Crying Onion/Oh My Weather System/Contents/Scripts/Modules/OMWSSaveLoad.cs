@@ -59,7 +59,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
 
         void OnEnable() => saveLoad = (OMWSSaveLoad)target;
 
-        public override GUIContent GetGUIContent() => new GUIContent("    Save & Load", (Texture)Resources.Load("Save"), "Manage save and load commands within the OMWS system.");
+        public override GUIContent GetGUIContent() => new GUIContent("", (Texture)Resources.Load("Save"), "Save & Load: Manage save and load commands within the OMWS system.");
 
         public override void OnInspectorGUI() { }
 

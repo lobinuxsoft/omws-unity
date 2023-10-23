@@ -112,7 +112,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         void OnEnable() { }
 
         public override GUIContent GetGUIContent() =>
-            new GUIContent("    MicroSplat Control", (Texture)Resources.Load("Integration"), "Links the OMWS with MicroSplat.");
+            new GUIContent("", (Texture)Resources.Load("Integration"), "MicroSplat Control: Links the OMWS with MicroSplat.");
 
         public override void DisplayInOMWSWindow()
         {
