@@ -3,7 +3,31 @@ guid: 773c296719b8eda4e803fc2e91ee1410
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - forecastProfile: {instanceID: 0}
+  - weatherSphere: {instanceID: 0}
+  - climateProfile: {instanceID: 0}
+  - currentWeather: {instanceID: 0}
+  - weatherChangeCheck: {instanceID: 0}
+  - cloudTexture: {instanceID: 0}
+  - atmosphereProfile: {fileID: 11400000, guid: 8cc0487e978305c49a20079f78f36ba0,
+      type: 2}
+  - perennialProfile: {fileID: 11400000, guid: 8ce0d8458b4495b4593c1e03027a0ce5, type: 2}
+  - sunLight: {instanceID: 0}
+  - cloudMesh: {instanceID: 0}
+  - skyMesh: {instanceID: 0}
+  - fogMesh: {instanceID: 0}
+  - omwsCamera: {instanceID: 0}
+  - omwsMaterials: {instanceID: 0}
+  - VFX: {instanceID: 0}
+  - icon1: {instanceID: 0}
+  - icon2: {instanceID: 0}
+  - icon3: {instanceID: 0}
+  - icon4: {instanceID: 0}
+  - overrideAtmosphere: {instanceID: 0}
+  - overrideWeather: {instanceID: 0}
+  - overrideTime: {instanceID: 0}
+  - moduleHolder: {instanceID: 0}
   executionOrder: 0
   icon: {fileID: 2800000, guid: bc0a502660c3afd4aa4dd9c13f3efb30, type: 3}
   userData: 

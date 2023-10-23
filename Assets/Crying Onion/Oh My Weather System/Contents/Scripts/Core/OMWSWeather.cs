@@ -32,7 +32,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
         #endregion
 
-        #region Atmosphere    
+        #region Atmosphere
 
         [Tooltip("Should the atmosphere be set using the physical sun height or the time of day")]
         public bool usePhysicalSunHeight;
@@ -181,7 +181,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
         #region Events
 
         [System.Serializable]
-        public class Events
+        public class OMWSEvents
         {
             public float timeToCheckFor;
             public int currentTick;
@@ -297,7 +297,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             }
         }
 
-        public Events events;
+        public OMWSEvents events;
         #endregion
 
         #region Triggers   
@@ -321,7 +321,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                 else
                     perennialProfile.currentTicks = value;
 
-                MeridiemTime.DayPercentToMeridiemTime(GetCurrentDayPercentage(), ref calendar.meridiemTime);
+                OMWSMeridiemTime.DayPercentToMeridiemTime(GetCurrentDayPercentage(), ref calendar.meridiemTime);
             }
         }
 
@@ -354,7 +354,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
         {
             public float currentTicks;
             [OMWSFormatTime]
-            public MeridiemTime meridiemTime;
+            public OMWSMeridiemTime meridiemTime;
             public int currentDay;
             public int currentYear;
         }
@@ -582,7 +582,6 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
             if (perennialProfile.realisticYear)
                 perennialProfile.daysPerYear = perennialProfile.RealisticDaysPerYear();
-
 
             if (lockToCamera != LockToCameraStyle.DontLockToCamera)
             {
@@ -1759,7 +1758,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                         break;
                     case (0.75f):
                         events.RaiseOnEvening();
-                        events.timeToCheckFor = 1f;
+                        events.timeToCheckFor = 1;
                         break;
                     case (1):
                         events.RaiseOnMidnight();
@@ -2011,7 +2010,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
 
     [System.Serializable]
-    public class MeridiemTime
+    public class OMWSMeridiemTime
     {
         public int hours;
         public int minutes;
@@ -2021,7 +2020,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
         public static float MeridiemTimeToDeyPercent(int hours, int minutes, Meridiem meridiem) =>
             ((ConvertTo12to1(hours) + (float)minutes / 60) / 24) + (meridiem == Meridiem.PM ? 0.5f : 0);
 
-        public static float MeridiemTimeToDeyPercent(MeridiemTime time) =>
+        public static float MeridiemTimeToDeyPercent(OMWSMeridiemTime time) =>
             ((time.hours + (float)time.minutes / 60) / 12) + (time.meridiem == Meridiem.PM ? 0.5f : 0);
 
         public static int ConvertTo12to1(int value)
@@ -2034,7 +2033,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             return value;
         }
 
-        public static void DayPercentToMeridiemTime(float dayPercent, ref MeridiemTime time)
+        public static void DayPercentToMeridiemTime(float dayPercent, ref OMWSMeridiemTime time)
         {
             time.minutes = Mathf.RoundToInt(dayPercent * 1440);
             time.hours = (time.minutes - time.minutes % 60) / 60;
@@ -2688,8 +2687,8 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
                     if (EditorGUI.EndChangeCheck())
                     {
-                        MeridiemTime i = new MeridiemTime();
-                        MeridiemTime.DayPercentToMeridiemTime(t.GetCurrentDayPercentage(), ref i);
+                        OMWSMeridiemTime i = new OMWSMeridiemTime();
+                        OMWSMeridiemTime.DayPercentToMeridiemTime(t.GetCurrentDayPercentage(), ref i);
                         calendar.FindPropertyRelative("meridiemTime").FindPropertyRelative("hours").intValue = i.hours;
                         calendar.FindPropertyRelative("meridiemTime").FindPropertyRelative("minutes").intValue = i.minutes;
                         calendar.FindPropertyRelative("meridiemTime").FindPropertyRelative("meridiem").intValue = (int)i.meridiem;
@@ -2700,10 +2699,10 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
                     if (EditorGUI.EndChangeCheck())
                     {
-                        calendar.FindPropertyRelative("currentTicks").floatValue = t.perennialProfile.ticksPerDay * MeridiemTime.MeridiemTimeToDeyPercent(
+                        calendar.FindPropertyRelative("currentTicks").floatValue = t.perennialProfile.ticksPerDay * OMWSMeridiemTime.MeridiemTimeToDeyPercent(
                         calendar.FindPropertyRelative("meridiemTime").FindPropertyRelative("hours").intValue,
                         calendar.FindPropertyRelative("meridiemTime").FindPropertyRelative("minutes").intValue,
-                        (MeridiemTime.Meridiem)calendar.FindPropertyRelative("meridiemTime").FindPropertyRelative("meridiem").intValue);
+                        (OMWSMeridiemTime.Meridiem)calendar.FindPropertyRelative("meridiemTime").FindPropertyRelative("meridiem").intValue);
                     }
 
                     calendar.FindPropertyRelative("currentDay").intValue = EditorGUILayout.IntSlider("Current Day", calendar.FindPropertyRelative("currentDay").intValue, 0, perennial.daysPerYear);

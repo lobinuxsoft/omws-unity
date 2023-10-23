@@ -104,7 +104,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         }
 
 
-        public void DisplayInCozyWindow()
+        public void DisplayInOMWSWindow()
         {
             serializedObject.Update();
 

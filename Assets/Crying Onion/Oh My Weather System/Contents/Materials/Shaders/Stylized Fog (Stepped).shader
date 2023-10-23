@@ -1,4 +1,4 @@
-Shader "Distant Lands/Cozy/Stepped Fog"
+Shader "CryingOnion/OMWS/Stepped Fog"
 {
 	Properties
 	{

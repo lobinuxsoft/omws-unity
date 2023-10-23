@@ -38,8 +38,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   tempratureFilter: 0
   precipitationFilter: 0
-  currentTicks: 33.431435
-  currentDay: 23
+  currentTicks: 282
+  currentDay: 22
   currentYear: 0
   dayAndTime: 14.619445
   pauseTime: 0
@@ -242,4 +242,4 @@ MonoBehaviour:
   - name: December
     days: 31
   timeCurveSettings: 2
-  daysPerYear: 365
+  daysPerYear: 48

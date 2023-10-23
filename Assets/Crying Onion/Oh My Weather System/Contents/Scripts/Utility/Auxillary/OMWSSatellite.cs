@@ -4,7 +4,7 @@ using CryingOnion.OhMy.WeatherSystem.Core;
 using UnityEditor;
 #endif
 
-namespace DistantLands.Cozy
+namespace CryingOnion.OhMy.WeatherSystem.Utility
 {
     [ExecuteAlways]
     public class OMWSSatellite : MonoBehaviour

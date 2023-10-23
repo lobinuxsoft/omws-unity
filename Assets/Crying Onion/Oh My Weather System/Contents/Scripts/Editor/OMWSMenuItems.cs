@@ -38,7 +38,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
             Selection.activeGameObject = i;
         }
 
-        [MenuItem("CryingOnion/Oh My Weather System/Create Cozy Biome")]
+        [MenuItem("CryingOnion/Oh My Weather System/Create OMWS Biome")]
         static void OMWSBiomeCreation()
         {
             Camera view = SceneView.lastActiveSceneView.camera;
@@ -52,7 +52,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
             Selection.activeGameObject = i;
         }
 
-        [MenuItem("CryingOnion.OhMy Weather System/Toggle Tooltips")]
+        [MenuItem("CryingOnion/Oh My Weather System/Toggle Tooltips")]
         static void OMWSToggleTooltips() => EditorPrefs.SetBool("OMWS_Tooltips", !EditorPrefs.GetBool("OMWS_Tooltips"));
 
         [MenuItem("CryingOnion/Oh My Weather System/Setup Scene (No Modules)", false, 1)]
@@ -74,7 +74,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
                 foreach (Light i in FindObjectsOfType<Light>())
                 {
                     if (i.type == LightType.Directional)
-                        if (EditorUtility.DisplayDialog("You already have a directional light!", "Do you want to delete " + i.gameObject.name + "? Cozy:Weather will properly light your scene", "Delete", "Keep this light"))
+                        if (EditorUtility.DisplayDialog("You already have a directional light!", "Do you want to delete " + i.gameObject.name + "? OMWS:Weather will properly light your scene", "Delete", "Keep this light"))
                             DestroyImmediate(i.gameObject);
 
                 }

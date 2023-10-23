@@ -71,29 +71,29 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         {
             yield return new WaitForEndOfFrame();
 
-            OMWSWeather.Events.onMorning += onMorning.Invoke;
-            OMWSWeather.Events.onNoon += onNoon.Invoke;
-            OMWSWeather.Events.onEvening += onEvening.Invoke;
-            OMWSWeather.Events.onMidnight += onMidnight.Invoke;
-            OMWSWeather.Events.onNewTick += onNewTick.Invoke;
-            OMWSWeather.Events.onNewHour += onNewHour.Invoke;
-            OMWSWeather.Events.onNewDay += onNewDay.Invoke;
-            OMWSWeather.Events.onNewYear += onNewYear.Invoke;
-            OMWSWeather.Events.onWeatherChange += onWeatherProfileChange.Invoke;
+            OMWSWeather.OMWSEvents.onMorning += onMorning.Invoke;
+            OMWSWeather.OMWSEvents.onNoon += onNoon.Invoke;
+            OMWSWeather.OMWSEvents.onEvening += onEvening.Invoke;
+            OMWSWeather.OMWSEvents.onMidnight += onMidnight.Invoke;
+            OMWSWeather.OMWSEvents.onNewTick += onNewTick.Invoke;
+            OMWSWeather.OMWSEvents.onNewHour += onNewHour.Invoke;
+            OMWSWeather.OMWSEvents.onNewDay += onNewDay.Invoke;
+            OMWSWeather.OMWSEvents.onNewYear += onNewYear.Invoke;
+            OMWSWeather.OMWSEvents.onWeatherChange += onWeatherProfileChange.Invoke;
 
         }
 
         private void OnDisable()
         {
-            OMWSWeather.Events.onMorning -= onMorning.Invoke;
-            OMWSWeather.Events.onNoon -= onNoon.Invoke;
-            OMWSWeather.Events.onEvening -= onEvening.Invoke;
-            OMWSWeather.Events.onMidnight -= onMidnight.Invoke;
-            OMWSWeather.Events.onNewTick -= onNewTick.Invoke;
-            OMWSWeather.Events.onNewHour -= onNewHour.Invoke;
-            OMWSWeather.Events.onNewDay -= onNewDay.Invoke;
-            OMWSWeather.Events.onNewYear -= onNewYear.Invoke;
-            OMWSWeather.Events.onWeatherChange -= onWeatherProfileChange.Invoke;
+            OMWSWeather.OMWSEvents.onMorning -= onMorning.Invoke;
+            OMWSWeather.OMWSEvents.onNoon -= onNoon.Invoke;
+            OMWSWeather.OMWSEvents.onEvening -= onEvening.Invoke;
+            OMWSWeather.OMWSEvents.onMidnight -= onMidnight.Invoke;
+            OMWSWeather.OMWSEvents.onNewTick -= onNewTick.Invoke;
+            OMWSWeather.OMWSEvents.onNewHour -= onNewHour.Invoke;
+            OMWSWeather.OMWSEvents.onNewDay -= onNewDay.Invoke;
+            OMWSWeather.OMWSEvents.onNewYear -= onNewYear.Invoke;
+            OMWSWeather.OMWSEvents.onWeatherChange -= onWeatherProfileChange.Invoke;
         }
 
         public void LogConsoleEvent() => Debug.Log("Test Event Passed.");

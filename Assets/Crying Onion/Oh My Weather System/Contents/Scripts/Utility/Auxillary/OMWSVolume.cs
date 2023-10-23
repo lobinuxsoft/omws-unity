@@ -22,7 +22,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
         private SetType m_SetType;
         [SerializeField]
         private string m_Tag = "Untagged";
-        private OMWSWeather m_CozyWeather;
+        private OMWSWeather m_OMWSWeather;
 
         [SerializeField] private OMWSWeatherProfile m_WeatherProfile;
         [SerializeField] private float m_TransitionTime;
@@ -33,7 +33,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
         [SerializeField] private int day;
         [SerializeField] private float transitionTime;
 
-        private void Awake() => m_CozyWeather = OMWSWeather.instance;
+        private void Awake() => m_OMWSWeather = OMWSWeather.instance;
 
         public void Run()
         {
@@ -48,22 +48,22 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
             switch (m_TriggerType)
             {
                 case (TriggerType.setWeather):
-                    m_CozyWeather.SetWeather(m_WeatherProfile, m_TransitionTime);
+                    m_OMWSWeather.SetWeather(m_WeatherProfile, m_TransitionTime);
                     break;
                 case (TriggerType.triggerEvent):
                     m_Event.Invoke();
                     break;
                 case (TriggerType.setAtmosphere):
-                    m_CozyWeather.ChangeAtmosphere(m_AtmosphereProfile, m_AtmosphereProfile, m_TransitionTime);
+                    m_OMWSWeather.ChangeAtmosphere(m_AtmosphereProfile, m_AtmosphereProfile, m_TransitionTime);
                     break;
                 case (TriggerType.setDay):
-                    m_CozyWeather.TransitionTime(ticks, day);
+                    m_OMWSWeather.TransitionTime(ticks, day);
                     break;
                 case (TriggerType.setTicks):
-                    m_CozyWeather.TransitionTime(ticks, m_CozyWeather.currentDay);
+                    m_OMWSWeather.TransitionTime(ticks, m_OMWSWeather.currentDay);
                     break;
                 case (TriggerType.setAmbience):
-                    m_CozyWeather.GetModule<OMWSAmbienceManager>().SetAmbience(m_AmbienceProfile, m_TransitionTime);
+                    m_OMWSWeather.GetModule<OMWSAmbienceManager>().SetAmbience(m_AmbienceProfile, m_TransitionTime);
                     break;
             }
         }
@@ -73,24 +73,24 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
             switch (m_TriggerType)
             {
                 case (TriggerType.setWeather):
-                    m_CozyWeather.currentWeather = m_WeatherProfile;
+                    m_OMWSWeather.currentWeather = m_WeatherProfile;
                     break;
                 case (TriggerType.triggerEvent):
                     m_Event.Invoke();
                     break;
                 case (TriggerType.setAtmosphere):
-                    m_CozyWeather.atmosphereProfile = m_AtmosphereProfile;
-                    m_CozyWeather.ResetQuality();
+                    m_OMWSWeather.atmosphereProfile = m_AtmosphereProfile;
+                    m_OMWSWeather.ResetQuality();
                     break;
                 case (TriggerType.setDay):
-                    m_CozyWeather.currentDay = day;
+                    m_OMWSWeather.currentDay = day;
                     break;
                 case (TriggerType.setTicks):
-                    m_CozyWeather.currentTicks = ticks;
+                    m_OMWSWeather.currentTicks = ticks;
                     break;
                 case (TriggerType.setAmbience):
-                    if (m_CozyWeather.GetModule<OMWSAmbienceManager>())
-                        m_CozyWeather.GetModule<OMWSAmbienceManager>().SetAmbience(m_AmbienceProfile, 0);
+                    if (m_OMWSWeather.GetModule<OMWSAmbienceManager>())
+                        m_OMWSWeather.GetModule<OMWSAmbienceManager>().SetAmbience(m_AmbienceProfile, 0);
                     break;
             }
         }

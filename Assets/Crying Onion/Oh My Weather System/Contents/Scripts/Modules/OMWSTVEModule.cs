@@ -92,8 +92,8 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         {
             if (weatherSphere.omwsMaterials)
             {
-                globalControl.globalWetness = weatherSphere.cozyMaterials.m_Wetness;
-                globalControl.globalOverlay = weatherSphere.cozyMaterials.m_SnowAmount;
+                globalControl.globalWetness = weatherSphere.omwsMaterials.m_Wetness;
+                globalControl.globalOverlay = weatherSphere.omwsMaterials.m_SnowAmount;
             }
 
             globalControl.seasonControl = weatherSphere.GetCurrentYearPercentage() * 4;

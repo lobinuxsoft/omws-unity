@@ -287,11 +287,11 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 			float OMWS_SnowScale;
 			float OMWS_SnowAmount;
 			sampler2D _GrassTexture;
-			UNITY_INSTANCING_BUFFER_START(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_START(CryingOnionOMWSStylizedGrass)
 				UNITY_DEFINE_INSTANCED_PROP(float4, OMWS_SnowTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float4, _GrassTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float3, _WindStrength)
-			UNITY_INSTANCING_BUFFER_END(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_END(CryingOnionOMWSStylizedGrass)
 
 	
 			inline float noise_randomValue (float2 uv) { return frac(sin(dot(uv, float2(12.9898, 78.233)))*43758.5453); }
@@ -400,7 +400,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_WindStrength);
+				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_WindStrength);
 				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
 				float mulTime11 = _TimeParameters.x * 3.0;
 				float2 texCoord17 = v.texcoord.xy * float2( 1,1 ) + ( ase_worldPos + ( _WindSpeed * mulTime11 * 3.0 ) ).xy;
@@ -613,7 +613,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 	
 				WorldViewDirection = SafeNormalize( WorldViewDirection );
 
-				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,OMWS_SnowTexture_ST);
+				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,OMWS_SnowTexture_ST);
 				float2 uvOMWS_SnowTexture = IN.ase_texcoord7.xy * OMWS_SnowTexture_ST_Instance.xy + OMWS_SnowTexture_ST_Instance.zw;
 				float2 appendResult3_g2 = (float2(WorldPosition.x , WorldPosition.z));
 				float temp_output_6_0_g2 = ( 1.0 / OMWS_SnowScale );
@@ -627,7 +627,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				float voroi5_g2 = voronoi5_g2( coords5_g2, time5_g2, id5_g2, uv5_g2, 0, voronoiSmoothId5_g2 );
 				float4 lerpResult19_g2 = lerp( ( OMWS_SnowColor * tex2D( OMWS_SnowTexture, uvOMWS_SnowTexture ) ) , _BottomColor , ( ( pow( ( pow( WorldNormal.y , 7.0 ) * ( simplePerlin2D7_g2 * ( 1.0 - voroi5_g2 ) ) ) , 0.5 ) * 1.0 ) > ( 1.0 - OMWS_SnowAmount ) ? 0.0 : 1.0 ));
 				float4 lerpResult40 = lerp( lerpResult19_g2 , _TopColor , saturate( ( IN.ase_color * _GradientAmount ) ));
-				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_GrassTexture_ST);
+				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_GrassTexture_ST);
 				float2 uv_GrassTexture = IN.ase_texcoord7.xy * _GrassTexture_ST_Instance.xy + _GrassTexture_ST_Instance.zw;
 				float4 tex2DNode29 = tex2D( _GrassTexture, uv_GrassTexture );
 				clip( tex2DNode29.a - _AlphaClip);
@@ -894,10 +894,10 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 			#endif
 	
 			sampler2D _GrassTexture;
-			UNITY_INSTANCING_BUFFER_START(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_START(CryingOnionOMWSStylizedGrass)
 				UNITY_DEFINE_INSTANCED_PROP(float4, _GrassTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float3, _WindStrength)
-			UNITY_INSTANCING_BUFFER_END(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_END(CryingOnionOMWSStylizedGrass)
 
 	
 			inline float noise_randomValue (float2 uv) { return frac(sin(dot(uv, float2(12.9898, 78.233)))*43758.5453); }
@@ -950,7 +950,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( o );
 
-				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_WindStrength);
+				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_WindStrength);
 				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
 				float mulTime11 = _TimeParameters.x * 3.0;
 				float2 texCoord17 = v.ase_texcoord.xy * float2( 1,1 ) + ( ase_worldPos + ( _WindSpeed * mulTime11 * 3.0 ) ).xy;
@@ -1133,7 +1133,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 					#endif
 				#endif
 
-				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_GrassTexture_ST);
+				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_GrassTexture_ST);
 				float2 uv_GrassTexture = IN.ase_texcoord2.xy * _GrassTexture_ST_Instance.xy + _GrassTexture_ST_Instance.zw;
 				float4 tex2DNode29 = tex2D( _GrassTexture, uv_GrassTexture );
 				
@@ -1264,10 +1264,10 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 			#endif
 	
 			sampler2D _GrassTexture;
-			UNITY_INSTANCING_BUFFER_START(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_START(CryingOnionOMWSStylizedGrass)
 				UNITY_DEFINE_INSTANCED_PROP(float4, _GrassTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float3, _WindStrength)
-			UNITY_INSTANCING_BUFFER_END(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_END(CryingOnionOMWSStylizedGrass)
 
 	
 			inline float noise_randomValue (float2 uv) { return frac(sin(dot(uv, float2(12.9898, 78.233)))*43758.5453); }
@@ -1315,7 +1315,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_WindStrength);
+				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_WindStrength);
 				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
 				float mulTime11 = _TimeParameters.x * 3.0;
 				float2 texCoord17 = v.ase_texcoord.xy * float2( 1,1 ) + ( ase_worldPos + ( _WindSpeed * mulTime11 * 3.0 ) ).xy;
@@ -1474,7 +1474,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 					#endif
 				#endif
 
-				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_GrassTexture_ST);
+				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_GrassTexture_ST);
 				float2 uv_GrassTexture = IN.ase_texcoord2.xy * _GrassTexture_ST_Instance.xy + _GrassTexture_ST_Instance.zw;
 				float4 tex2DNode29 = tex2D( _GrassTexture, uv_GrassTexture );
 				
@@ -1608,11 +1608,11 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 			float OMWS_SnowScale;
 			float OMWS_SnowAmount;
 			sampler2D _GrassTexture;
-			UNITY_INSTANCING_BUFFER_START(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_START(CryingOnionOMWSStylizedGrass)
 				UNITY_DEFINE_INSTANCED_PROP(float4, OMWS_SnowTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float4, _GrassTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float3, _WindStrength)
-			UNITY_INSTANCING_BUFFER_END(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_END(CryingOnionOMWSStylizedGrass)
 
 	
 			inline float noise_randomValue (float2 uv) { return frac(sin(dot(uv, float2(12.9898, 78.233)))*43758.5453); }
@@ -1721,7 +1721,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_WindStrength);
+				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_WindStrength);
 				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
 				float mulTime11 = _TimeParameters.x * 3.0;
 				float2 texCoord17 = v.ase_texcoord.xy * float2( 1,1 ) + ( ase_worldPos + ( _WindSpeed * mulTime11 * 3.0 ) ).xy;
@@ -1881,7 +1881,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 					#endif
 				#endif
 
-				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,OMWS_SnowTexture_ST);
+				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,OMWS_SnowTexture_ST);
 				float2 uvOMWS_SnowTexture = IN.ase_texcoord2.xy * OMWS_SnowTexture_ST_Instance.xy + OMWS_SnowTexture_ST_Instance.zw;
 				float3 ase_worldNormal = IN.ase_texcoord3.xyz;
 				float2 appendResult3_g2 = (float2(WorldPosition.x , WorldPosition.z));
@@ -1896,7 +1896,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				float voroi5_g2 = voronoi5_g2( coords5_g2, time5_g2, id5_g2, uv5_g2, 0, voronoiSmoothId5_g2 );
 				float4 lerpResult19_g2 = lerp( ( OMWS_SnowColor * tex2D( OMWS_SnowTexture, uvOMWS_SnowTexture ) ) , _BottomColor , ( ( pow( ( pow( ase_worldNormal.y , 7.0 ) * ( simplePerlin2D7_g2 * ( 1.0 - voroi5_g2 ) ) ) , 0.5 ) * 1.0 ) > ( 1.0 - OMWS_SnowAmount ) ? 0.0 : 1.0 ));
 				float4 lerpResult40 = lerp( lerpResult19_g2 , _TopColor , saturate( ( IN.ase_color * _GradientAmount ) ));
-				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_GrassTexture_ST);
+				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_GrassTexture_ST);
 				float2 uv_GrassTexture = IN.ase_texcoord2.xy * _GrassTexture_ST_Instance.xy + _GrassTexture_ST_Instance.zw;
 				float4 tex2DNode29 = tex2D( _GrassTexture, uv_GrassTexture );
 				clip( tex2DNode29.a - _AlphaClip);
@@ -2027,11 +2027,11 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 			float OMWS_SnowScale;
 			float OMWS_SnowAmount;
 			sampler2D _GrassTexture;
-			UNITY_INSTANCING_BUFFER_START(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_START(CryingOnionOMWSStylizedGrass)
 				UNITY_DEFINE_INSTANCED_PROP(float4, OMWS_SnowTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float4, _GrassTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float3, _WindStrength)
-			UNITY_INSTANCING_BUFFER_END(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_END(CryingOnionOMWSStylizedGrass)
 
 		
 			inline float noise_randomValue (float2 uv) { return frac(sin(dot(uv, float2(12.9898, 78.233)))*43758.5453); }
@@ -2140,7 +2140,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				UNITY_TRANSFER_INSTANCE_ID( v, o );
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( o );
 
-				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_WindStrength);
+				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_WindStrength);
 				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
 				float mulTime11 = _TimeParameters.x * 3.0;
 				float2 texCoord17 = v.ase_texcoord.xy * float2( 1,1 ) + ( ase_worldPos + ( _WindSpeed * mulTime11 * 3.0 ) ).xy;
@@ -2295,7 +2295,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 					#endif
 				#endif
 
-				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,OMWS_SnowTexture_ST);
+				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,OMWS_SnowTexture_ST);
 				float2 uvOMWS_SnowTexture = IN.ase_texcoord2.xy * OMWS_SnowTexture_ST_Instance.xy + OMWS_SnowTexture_ST_Instance.zw;
 				float3 ase_worldNormal = IN.ase_texcoord3.xyz;
 				float2 appendResult3_g2 = (float2(WorldPosition.x , WorldPosition.z));
@@ -2310,7 +2310,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				float voroi5_g2 = voronoi5_g2( coords5_g2, time5_g2, id5_g2, uv5_g2, 0, voronoiSmoothId5_g2 );
 				float4 lerpResult19_g2 = lerp( ( OMWS_SnowColor * tex2D( OMWS_SnowTexture, uvOMWS_SnowTexture ) ) , _BottomColor , ( ( pow( ( pow( ase_worldNormal.y , 7.0 ) * ( simplePerlin2D7_g2 * ( 1.0 - voroi5_g2 ) ) ) , 0.5 ) * 1.0 ) > ( 1.0 - OMWS_SnowAmount ) ? 0.0 : 1.0 ));
 				float4 lerpResult40 = lerp( lerpResult19_g2 , _TopColor , saturate( ( IN.ase_color * _GradientAmount ) ));
-				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_GrassTexture_ST);
+				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_GrassTexture_ST);
 				float2 uv_GrassTexture = IN.ase_texcoord2.xy * _GrassTexture_ST_Instance.xy + _GrassTexture_ST_Instance.zw;
 				float4 tex2DNode29 = tex2D( _GrassTexture, uv_GrassTexture );
 				clip( tex2DNode29.a - _AlphaClip);
@@ -2430,10 +2430,10 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 			#endif
 	
 			sampler2D _GrassTexture;
-			UNITY_INSTANCING_BUFFER_START(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_START(CryingOnionOMWSStylizedGrass)
 				UNITY_DEFINE_INSTANCED_PROP(float4, _GrassTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float3, _WindStrength)
-			UNITY_INSTANCING_BUFFER_END(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_END(CryingOnionOMWSStylizedGrass)
 
 	
 			inline float noise_randomValue (float2 uv) { return frac(sin(dot(uv, float2(12.9898, 78.233)))*43758.5453); }
@@ -2481,7 +2481,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_WindStrength);
+				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_WindStrength);
 				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
 				float mulTime11 = _TimeParameters.x * 3.0;
 				float2 texCoord17 = v.ase_texcoord.xy * float2( 1,1 ) + ( ase_worldPos + ( _WindSpeed * mulTime11 * 3.0 ) ).xy;
@@ -2642,7 +2642,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 					#endif
 				#endif
 
-				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_GrassTexture_ST);
+				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_GrassTexture_ST);
 				float2 uv_GrassTexture = IN.ase_texcoord3.xy * _GrassTexture_ST_Instance.xy + _GrassTexture_ST_Instance.zw;
 				float4 tex2DNode29 = tex2D( _GrassTexture, uv_GrassTexture );
 				
@@ -2810,11 +2810,11 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 			float OMWS_SnowScale;
 			float OMWS_SnowAmount;
 			sampler2D _GrassTexture;
-			UNITY_INSTANCING_BUFFER_START(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_START(CryingOnionOMWSStylizedGrass)
 				UNITY_DEFINE_INSTANCED_PROP(float4, OMWS_SnowTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float4, _GrassTexture_ST)
 				UNITY_DEFINE_INSTANCED_PROP(float3, _WindStrength)
-			UNITY_INSTANCING_BUFFER_END(DistantLandsCozyStylizedGrass)
+			UNITY_INSTANCING_BUFFER_END(CryingOnionOMWSStylizedGrass)
 
 	
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityGBuffer.hlsl"
@@ -2925,7 +2925,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_WindStrength);
+				float3 _WindStrength_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_WindStrength);
 				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
 				float mulTime11 = _TimeParameters.x * 3.0;
 				float2 texCoord17 = v.texcoord.xy * float2( 1,1 ) + ( ase_worldPos + ( _WindSpeed * mulTime11 * 3.0 ) ).xy;
@@ -3138,7 +3138,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 	
 				WorldViewDirection = SafeNormalize( WorldViewDirection );
 
-				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,OMWS_SnowTexture_ST);
+				float4 OMWS_SnowTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,OMWS_SnowTexture_ST);
 				float2 uvOMWS_SnowTexture = IN.ase_texcoord7.xy * OMWS_SnowTexture_ST_Instance.xy + OMWS_SnowTexture_ST_Instance.zw;
 				float2 appendResult3_g2 = (float2(WorldPosition.x , WorldPosition.z));
 				float temp_output_6_0_g2 = ( 1.0 / OMWS_SnowScale );
@@ -3152,7 +3152,7 @@ Shader "Crying Onion/OMWS/Stylized Grass"
 				float voroi5_g2 = voronoi5_g2( coords5_g2, time5_g2, id5_g2, uv5_g2, 0, voronoiSmoothId5_g2 );
 				float4 lerpResult19_g2 = lerp( ( OMWS_SnowColor * tex2D( OMWS_SnowTexture, uvOMWS_SnowTexture ) ) , _BottomColor , ( ( pow( ( pow( WorldNormal.y , 7.0 ) * ( simplePerlin2D7_g2 * ( 1.0 - voroi5_g2 ) ) ) , 0.5 ) * 1.0 ) > ( 1.0 - OMWS_SnowAmount ) ? 0.0 : 1.0 ));
 				float4 lerpResult40 = lerp( lerpResult19_g2 , _TopColor , saturate( ( IN.ase_color * _GradientAmount ) ));
-				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(DistantLandsCozyStylizedGrass,_GrassTexture_ST);
+				float4 _GrassTexture_ST_Instance = UNITY_ACCESS_INSTANCED_PROP(CryingOnionOMWSStylizedGrass,_GrassTexture_ST);
 				float2 uv_GrassTexture = IN.ase_texcoord7.xy * _GrassTexture_ST_Instance.xy + _GrassTexture_ST_Instance.zw;
 				float4 tex2DNode29 = tex2D( _GrassTexture, uv_GrassTexture );
 				clip( tex2DNode29.a - _AlphaClip);
