@@ -1,0 +1,19 @@
+{
+  "name": "com.cryingonion.omws",
+  "displayName": "Oh My Weather System",
+  "version": "1.0.0",
+  "dependencies": {},
+  "enableLockFile": true,
+  "resolutionStrategy": "highestMinor",
+  "unity": "2022.3",
+  "keywords": [
+    "Tool",
+    "Editor"
+  ],
+  "description": "Climate system, designed to be able to transition different types of climates, day and night, etc.",
+  "author": {
+    "name": "Lobinux",
+    "email": "lobinuxsoft@gmail.com",
+    "url": "https://www.linkedin.com/in/lobinux/"
+  }
+}
