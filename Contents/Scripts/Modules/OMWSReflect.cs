@@ -23,7 +23,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
         {
             base.SetupModule();
             reflectionCubemap = Resources.Load("Materials/Reflection Cubemap") as Cubemap;
-            RenderSettings.customReflectionTexture = reflectionCubemap;
+            RenderSettings.customReflection = reflectionCubemap;
             RenderSettings.defaultReflectionMode = UnityEngine.Rendering.DefaultReflectionMode.Custom;
             weatherSphere.fogMesh.gameObject.layer = ToLayer(layerMask);
             weatherSphere.skyMesh.gameObject.layer = ToLayer(layerMask);
@@ -62,7 +62,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             if (reflectionCamera)
                 DestroyImmediate(reflectionCamera.gameObject);
 
-            RenderSettings.customReflectionTexture = null;
+            RenderSettings.customReflection = null;
         }
 
         public void RenderReflections()
