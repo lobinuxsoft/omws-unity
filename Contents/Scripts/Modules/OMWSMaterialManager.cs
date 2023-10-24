@@ -54,15 +54,27 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             if (profile == null)
                 return;
 
-            m_SnowAmount += Time.deltaTime * snowSpeed;
-
-            if (snowSpeed == 0)
+            if (snowSpeed < float.Epsilon)
+            {
                 if (weatherSphere.currentTemperature > 32)
                     m_SnowAmount -= Time.deltaTime * m_SnowMeltSpeed * 0.03f;
                 else
                     m_SnowAmount -= Time.deltaTime * m_SnowMeltSpeed * 0.001f;
+            }
+            else
+                m_SnowAmount += Time.deltaTime * snowSpeed;
 
-            m_Wetness += (Time.deltaTime * rainSpeed) + (-1 * m_DryingSpeed * 0.001f);
+            if(rainSpeed < float.Epsilon)
+            {
+                if (weatherSphere.currentTemperature > 32)
+                    m_Wetness -= Time.deltaTime * m_DryingSpeed * 0.03f;
+                else
+                    m_Wetness -= Time.deltaTime * m_DryingSpeed * 0.001f;
+            }
+            else
+                m_Wetness += Time.deltaTime * rainSpeed;
+
+            //m_Wetness += (Time.deltaTime * rainSpeed) + (-1 * m_DryingSpeed * 0.001f);
 
             m_SnowAmount = Mathf.Clamp01(m_SnowAmount);
             m_Wetness = Mathf.Clamp01(m_Wetness);

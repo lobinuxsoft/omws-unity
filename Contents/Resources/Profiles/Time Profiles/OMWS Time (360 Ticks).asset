@@ -45,7 +45,7 @@ MonoBehaviour:
   pauseTime: 0
   realisticYear: 0
   useLeapYear: 0
-  resetTicksOnStart: 0
+  resetTicksOnStart: 1
   startTicks: 120
   ticksPerDay: 360
   tickSpeed: 4
@@ -242,4 +242,4 @@ MonoBehaviour:
   - name: December
     days: 31
   timeCurveSettings: 2
-  daysPerYear: 48
+  daysPerYear: 5
