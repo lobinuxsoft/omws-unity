@@ -4,10 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using CryingOnion.OhMy.WeatherSystem.Core;
 using CryingOnion.OhMy.WeatherSystem.Data;
-using CryingOnion.OhMy.WeatherSystem.Utility;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace CryingOnion.OhMy.WeatherSystem.Module
 {
@@ -52,15 +48,13 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             }
         }
 
-
         private void OnEnable()
         {
-
             if (GetComponent<OMWSWeather>())
             {
                 GetComponent<OMWSWeather>().IntitializeModule(typeof(OMWSEventManager));
                 DestroyImmediate(this);
-                Debug.LogWarning("Add modules in the settings tab in OMWS 2!");
+                Debug.LogWarning("Add modules in the settings tab in OMWS!");
                 return;
             }
 
@@ -80,7 +74,6 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             OMWSWeather.OMWSEvents.onNewDay += onNewDay.Invoke;
             OMWSWeather.OMWSEvents.onNewYear += onNewYear.Invoke;
             OMWSWeather.OMWSEvents.onWeatherChange += onWeatherProfileChange.Invoke;
-
         }
 
         private void OnDisable()
@@ -100,71 +93,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
 
         public void LogConsoleEvent(string log) => Debug.Log($"Test Event Passed. Log: {log}");
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSEventManager))]
-    [CanEditMultipleObjects]
-    public class OMWSEventManagerEditor : OMWSModuleEditor
-    {
-        protected static bool todEvents;
-        protected static bool teEvents;
-        protected static bool weatherEvents;
-        protected static bool eventSettings;
-
-        public override GUIContent GetGUIContent() =>
-            new GUIContent("", (Texture)Resources.Load("Events"), "Events: Setup Unity events that directly integrate into the OMWS system.");
-
-        void OnEnable() { }
-
-        public override void DisplayInOMWSWindow()
-        {
-            serializedObject.Update();
-
-            todEvents = EditorGUILayout.BeginFoldoutHeaderGroup(todEvents,
-                    new GUIContent("    Time of Day Events"), OMWSEditorUtilities.FoldoutStyle());
-
-            EditorGUILayout.EndFoldoutHeaderGroup();
-            if (todEvents)
-            {
-                EditorGUI.indentLevel++;
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onMorning"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onNoon"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onEvening"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onMidnight"));
-                EditorGUI.indentLevel--;
-            }
-
-            teEvents = EditorGUILayout.BeginFoldoutHeaderGroup(teEvents,
-                new GUIContent("    Time Elapsed Events"), OMWSEditorUtilities.FoldoutStyle());
-
-            EditorGUILayout.EndFoldoutHeaderGroup();
-            if (teEvents)
-            {
-                EditorGUI.indentLevel++;
-                EditorGUILayout.Space();
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onNewTick"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onNewHour"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onNewDay"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onNewYear"));
-                EditorGUI.indentLevel--;
-            }
-
-            weatherEvents = EditorGUILayout.BeginFoldoutHeaderGroup(weatherEvents,
-                new GUIContent("    Weather Events"), OMWSEditorUtilities.FoldoutStyle());
-
-            EditorGUILayout.EndFoldoutHeaderGroup();
-            if (weatherEvents)
-            {
-                EditorGUI.indentLevel++;
-                EditorGUILayout.Space();
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("onWeatherProfileChange"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("omwsEvents"), new GUIContent("Event FX"));
-
-                EditorGUI.indentLevel--;
-            }
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-#endif
 }

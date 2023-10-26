@@ -1,14 +1,11 @@
-using UnityEngine;
-using CryingOnion.OhMy.WeatherSystem.Module;
 using CryingOnion.OhMy.WeatherSystem.Core;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using CryingOnion.OhMy.WeatherSystem.Module;
+using UnityEngine;
 
 namespace CryingOnion.OhMy.WeatherSystem.Data
 {
     [System.Serializable]
-    [CreateAssetMenu(menuName = "CryingOnion/Oh My Weather System/FX/Event FX", order = 361)]
+    [CreateAssetMenu(menuName = "Crying Onion/Oh My Weather System/FX/Event FX", order = 361)]
     public class OMWSEventFX : OMWSFXProfile
     {
         public OMWSEventManager events;
@@ -70,26 +67,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             return true;
         }
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSEventFX))]
-    [CanEditMultipleObjects]
-    public class OMWSEventFXEditor : OMWSFXProfileEditor
-    {
-        void OnEnable() { }
-
-        public override void OnInspectorGUI()
-        {
-            serializedObject.Update();
-
-            EditorGUILayout.HelpBox("No other properties to adjust! Set events in the OMWS Event Module!", MessageType.Info);
-
-            serializedObject.ApplyModifiedProperties();
-        }
-
-        public override void RenderInWindow(Rect pos) { }
-
-        public override float GetLineHeight() => 0;
-    }
-#endif
 }

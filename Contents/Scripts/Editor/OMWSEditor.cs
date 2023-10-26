@@ -13,7 +13,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
         public OMWSWeather headUnit;
         public Editor editor;
 
-        [MenuItem("CryingOnion/Oh My Weather System/Open OMWS Editor", false, 0)]
+        [MenuItem("Crying Onion/Oh My Weather System/Open OMWS Editor", false, 0)]
         static void Init()
         {
             OMWSEditor window = (OMWSEditor)EditorWindow.GetWindow(typeof(OMWSEditor), false, "OMWS: Weather");

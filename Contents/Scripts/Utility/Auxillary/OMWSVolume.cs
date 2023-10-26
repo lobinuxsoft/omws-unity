@@ -4,7 +4,6 @@ using CryingOnion.OhMy.WeatherSystem.Module;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 namespace CryingOnion.OhMy.WeatherSystem.Utility
 {
     [RequireComponent(typeof(Collider))]

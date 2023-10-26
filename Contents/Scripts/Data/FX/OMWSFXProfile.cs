@@ -1,9 +1,6 @@
 using UnityEngine;
 using CryingOnion.OhMy.WeatherSystem.Utility;
 using CryingOnion.OhMy.WeatherSystem.Module;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace CryingOnion.OhMy.WeatherSystem.Data
 {
@@ -37,16 +34,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         /// <param name="VFX">Holds a reference to the Weather VFX Module.</param>
         public abstract bool InitializeEffect(OMWSVFXModule VFX);
     }
-
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSFXProfile))]
-    [CanEditMultipleObjects]
-    public abstract class OMWSFXProfileEditor : Editor
-    {
-        public abstract float GetLineHeight();
-
-        public abstract void RenderInWindow(Rect pos);
-    }
-#endif
 }

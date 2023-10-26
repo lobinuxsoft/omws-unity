@@ -4,12 +4,18 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
 {
     public class OMWSThunder : MonoBehaviour
     {
+#if OMWS_WEATHER_FMOD
+        [SerializeField] private FMODUnity.EventReference[] m_ThunderSounds;
+        private FMODUnity.EventReference m_EventReference;
+        private FMOD.Studio.EventInstance m_EventInstance;
+#else
         [SerializeField] private AudioClip[] m_ThunderSounds;
+        private AudioSource m_AudioSource;
+#endif
         [SerializeField] private AnimationCurve m_LightIntensity;
         [SerializeField] private Vector2 m_ThunderDelayRange;
 
         private Light m_Light;
-        private AudioSource m_AudioSource;
 
         private float m_WakeTime;
         private float m_WakeAmount;
@@ -20,9 +26,14 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
         {
             m_WakeTime = Time.time;
             m_Light = GetComponentInChildren<Light>();
-            m_AudioSource = GetComponentInChildren<AudioSource>();
 
+#if OMWS_WEATHER_FMOD
+            m_EventReference = m_ThunderSounds[Random.Range(0, m_ThunderSounds.Length)];
+            m_EventInstance = FMODUnity.RuntimeManager.CreateInstance(m_EventReference);
+#else
+            m_AudioSource = GetComponentInChildren<AudioSource>();
             m_AudioSource.clip = m_ThunderSounds[Random.Range(0, m_ThunderSounds.Length)];
+#endif
             m_ThunderDelay = Random.Range(m_ThunderDelayRange.x, m_ThunderDelayRange.y);
         }
 
@@ -33,6 +44,14 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
 
             m_Light.intensity = m_LightIntensity.Evaluate(m_WakeAmount);
 
+#if OMWS_WEATHER_FMOD
+            m_EventInstance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+            if (state == FMOD.Studio.PLAYBACK_STATE.STOPPED || state == FMOD.Studio.PLAYBACK_STATE.STOPPING)
+            {
+                Destroy(gameObject);
+                return;
+            }
+#else
             if (m_WakeAmount > m_AudioSource.clip.length + m_ThunderDelay)
             {
                 Destroy(gameObject);
@@ -41,6 +60,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Utility
 
             if (m_WakeAmount > m_ThunderDelay && !m_AudioSource.isPlaying)
                 m_AudioSource.Play();
+#endif
         }
     }
 }

@@ -1,13 +1,10 @@
-using UnityEngine;
 using CryingOnion.OhMy.WeatherSystem.Core;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using UnityEngine;
 
 namespace CryingOnion.OhMy.WeatherSystem.Data
 {
     [System.Serializable]
-    [CreateAssetMenu(menuName = "CryingOnion/Oh My Weather System/Climate Profile", order = 361)]
+    [CreateAssetMenu(menuName = "Crying Onion/Oh My Weather System/Climate Profile", order = 361)]
     public class OMWSClimateProfile : ScriptableObject
     {
         [Tooltip("The global temprature during the year. the x-axis is the current day over the days in the year and the y axis is the temprature in farenheit.")]
@@ -88,53 +85,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             return i;
         }
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSClimateProfile))]
-    [CanEditMultipleObjects]
-    public class OMWSClimateProfileEditor : Editor
-    {
-        SerializedProperty tempratureOverYear;
-        SerializedProperty precipitationOverYear;
-        SerializedProperty tempratureOverDay;
-        SerializedProperty precipitationOverDay;
-        SerializedProperty tempratureFilter;
-        SerializedProperty precipitationFilter;
-        OMWSClimateProfile prof;
-
-        void OnEnable()
-        {
-            tempratureOverYear = serializedObject.FindProperty("tempratureOverYear");
-            precipitationOverYear = serializedObject.FindProperty("precipitationOverYear");
-            tempratureOverDay = serializedObject.FindProperty("tempratureOverDay");
-            precipitationOverDay = serializedObject.FindProperty("precipitationOverDay");
-            tempratureFilter = serializedObject.FindProperty("tempratureFilter");
-            precipitationFilter = serializedObject.FindProperty("precipitationFilter");
-            prof = (OMWSClimateProfile)target;
-        }
-
-
-        public override void OnInspectorGUI()
-        {
-            serializedObject.Update();
-            Undo.RecordObject(prof, prof.name + " Profile Changes");
-
-            EditorGUILayout.LabelField("Global Curves", EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(tempratureOverYear);
-            EditorGUILayout.PropertyField(precipitationOverYear);
-            EditorGUILayout.PropertyField(tempratureOverDay);
-            EditorGUILayout.PropertyField(precipitationOverDay);
-            EditorGUILayout.Space(20);
-
-            EditorGUILayout.LabelField("Global Filters", EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(tempratureFilter);
-            EditorGUILayout.PropertyField(precipitationFilter);
-
-            EditorGUILayout.Space();
-            EditorUtility.SetDirty(prof);
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-#endif
 }

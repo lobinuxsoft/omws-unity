@@ -15,7 +15,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             {
                 GetComponent<OMWSWeather>().IntitializeModule(typeof(OMWSReports));
                 DestroyImmediate(this);
-                Debug.LogWarning("Add modules in the settings tab in OMWS 2!");
+                Debug.LogWarning("Add modules in the settings tab in OMWS!");
                 return;
             }
         }

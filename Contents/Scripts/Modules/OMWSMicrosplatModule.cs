@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using CryingOnion.OhMy.WeatherSystem.Core;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+﻿using CryingOnion.OhMy.WeatherSystem.Core;
+using UnityEngine;
 
 namespace CryingOnion.OhMy.WeatherSystem.Module
 {
@@ -49,7 +46,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             {
                 GetComponent<OMWSWeather>().IntitializeModule(typeof(OMWSMicrosplatModule));
                 DestroyImmediate(this);
-                Debug.LogWarning("Add modules in the settings tab in OMWS 2!");
+                Debug.LogWarning("Add modules in the settings tab in OMWS!");
                 return;
             }
 
@@ -100,39 +97,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             }
         }
     }
-
-#if UNITY_EDITOR    
-    [CustomEditor(typeof(OMWSMicrosplatModule))]
-    [CanEditMultipleObjects]
-    public class OMWSMicrosplatModuleEditor : OMWSModuleEditor
-    {
-        SerializedProperty updateFrequency;
-        OMWSMicrosplatModule module;
-
-        void OnEnable() { }
-
-        public override GUIContent GetGUIContent() =>
-            new GUIContent("", (Texture)Resources.Load("Integration"), "MicroSplat Control: Links the OMWS with MicroSplat.");
-
-        public override void DisplayInOMWSWindow()
-        {
-            serializedObject.Update();
-
-            if (module == null)
-                module = (OMWSMicrosplatModule)target;
-
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("updateWetness"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("minWetness"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("maxWetness"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("updateRainRipples"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("updatePuddles"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("updateStreams"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("updateSnow"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("updateWindStrength"));
-            EditorGUILayout.Space(20);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("updateFrequency"));
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-#endif
 }
