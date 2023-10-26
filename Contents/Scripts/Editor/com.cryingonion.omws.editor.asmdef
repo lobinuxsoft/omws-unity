@@ -1,0 +1,18 @@
+{
+    "name": "com.cryingonion.omws.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:003fad85371e6364a8e03622858e5c86"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "Editor"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
