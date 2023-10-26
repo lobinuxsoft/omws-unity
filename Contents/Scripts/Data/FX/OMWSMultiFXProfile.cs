@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using CryingOnion.OhMy.WeatherSystem.Core;
 using CryingOnion.OhMy.WeatherSystem.Utility;
 using CryingOnion.OhMy.WeatherSystem.Module;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace CryingOnion.OhMy.WeatherSystem.Data
 {
     [System.Serializable]
-    [CreateAssetMenu(menuName = "CryingOnion/Oh My Weather System/FX/Multi FX", order = 361)]
+    [CreateAssetMenu(menuName = "Crying Onion/Oh My Weather System/FX/Multi FX", order = 361)]
     public class OMWSMultiFXProfile : OMWSFXProfile
     {
         public OMWSWeather weather;
@@ -66,36 +63,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             return true;
         }
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSMultiFXProfile))]
-    [CanEditMultipleObjects]
-    public class OMWSMultiFXProfileEditor : OMWSFXProfileEditor
-    {
-        void OnEnable() { }
-
-        public override void RenderInWindow(Rect pos)
-        {
-            float space = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-            var propPosA = new Rect(pos.x, pos.y + space, pos.width, EditorGUIUtility.singleLineHeight);
-
-            serializedObject.Update();
-
-            EditorGUI.PropertyField(propPosA, serializedObject.FindProperty("multiFX"));
-
-            serializedObject.ApplyModifiedProperties();
-        }
-
-        public override float GetLineHeight() => 1 + (serializedObject.FindProperty("multiFX").isExpanded ? serializedObject.FindProperty("multiFX").arraySize : 0);
-
-        public override void OnInspectorGUI()
-        {
-            serializedObject.Update();
-
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("multiFX"));
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-#endif
 }

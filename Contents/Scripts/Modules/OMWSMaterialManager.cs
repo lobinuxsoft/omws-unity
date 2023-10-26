@@ -2,8 +2,6 @@
 using CryingOnion.OhMy.WeatherSystem.Data;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-#endif
 
 namespace CryingOnion.OhMy.WeatherSystem.Module
 {
@@ -26,11 +24,10 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             {
                 GetComponent<OMWSWeather>().IntitializeModule(typeof(OMWSMaterialManager));
                 DestroyImmediate(this);
-                Debug.LogWarning("Add modules in the settings tab in OMWS 2!");
+                Debug.LogWarning("Add modules in the settings tab in OMWS!");
                 return;
             }
         }
-
 
         // Start is called before the first frame update
         void Awake()
@@ -64,7 +61,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             else
                 m_SnowAmount += Time.deltaTime * snowSpeed;
 
-            if(rainSpeed < float.Epsilon)
+            if (rainSpeed < float.Epsilon)
             {
                 if (weatherSphere.currentTemperature > 32)
                     m_Wetness -= Time.deltaTime * m_DryingSpeed * 0.03f;

@@ -1,11 +1,8 @@
+using CryingOnion.OhMy.WeatherSystem.Core;
+using CryingOnion.OhMy.WeatherSystem.Data;
+using CryingOnion.OhMy.WeatherSystem.Utility;
 using System.Collections.Generic;
 using UnityEngine;
-using CryingOnion.OhMy.WeatherSystem.Core;
-using CryingOnion.OhMy.WeatherSystem.Utility;
-using CryingOnion.OhMy.WeatherSystem.Data;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace CryingOnion.OhMy.WeatherSystem.Module
 {
@@ -23,7 +20,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             {
                 GetComponent<OMWSWeather>().IntitializeModule(typeof(OMWSSatelliteManager));
                 DestroyImmediate(this);
-                Debug.LogWarning("Add modules in the settings tab in OMWS 2!");
+                Debug.LogWarning("Add modules in the settings tab in OMWS!");
                 return;
             }
         }
@@ -163,59 +160,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
 
         void Reset() => satellites = new List<OMWSSatelliteProfile> { Resources.Load("Profiles/Satellites/Moon") as OMWSSatelliteProfile };
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSSatelliteManager))]
-    [CanEditMultipleObjects]
-    public class OMWSSatelliteManagerEditor : OMWSModuleEditor
-    {
-        OMWSSatelliteManager t;
-        static bool manageSatellites;
-
-        private void OnEnable() => t = (OMWSSatelliteManager)target;
-
-        public override GUIContent GetGUIContent() =>
-            new GUIContent("", (Texture)Resources.Load("OMWSMoon"), "Satellites: Manage satellites and moons within the OMWS system.");
-
-        public override void OnInspectorGUI() { }
-
-        public override void DisplayInOMWSWindow()
-        {
-            serializedObject.Update();
-            manageSatellites = EditorGUILayout.BeginFoldoutHeaderGroup(manageSatellites, new GUIContent("    Manage Satellites"), OMWSEditorUtilities.FoldoutStyle());
-            EditorGUILayout.EndFoldoutHeaderGroup();
-
-            if (manageSatellites)
-            {
-                EditorGUILayout.Space();
-                EditorGUI.indentLevel++;
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("satellites"));
-                EditorGUILayout.Space();
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("hideInHierarchy"));
-                EditorGUI.indentLevel--;
-            }
-
-            EditorGUI.indentLevel++;
-
-            if (t.satellites != null)
-            {
-                foreach (OMWSSatelliteProfile i in t.satellites)
-                {
-                    if (i)
-                        (CreateEditor(i) as OMWSSatelliteProfileEditor).NestedGUI();
-                }
-            }
-
-            EditorGUI.indentLevel--;
-
-            EditorGUILayout.Space();
-
-            if (GUILayout.Button("Refresh Satellites"))
-                ((OMWSSatelliteManager)target).UpdateSatellites();
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-
-#endif
 }

@@ -7,6 +7,8 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
     [InitializeOnLoad]
     public class AddOMWSDefines : Editor
     {
+        const string OMWS_WEATHER_URP = "OMWS_WEATHER_URP";
+
         /// <summary>
         /// Symbols that will be added to the editor
         /// </summary>

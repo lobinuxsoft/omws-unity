@@ -56,7 +56,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
             }
 
             if (materialManager.profile)
-                (CreateEditor(materialManager.profile) as OMWSMaterialProfileEditor).DisplayInOMWSWindow();
+                (CreateEditor(materialManager.profile) as OMWSMaterialManagerProfileEditor).DisplayInOMWSWindow();
 
             settings = EditorGUILayout.BeginFoldoutHeaderGroup(settings, "    Options", OMWSEditorUtilities.FoldoutStyle());
 

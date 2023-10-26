@@ -1,9 +1,9 @@
+using CryingOnion.OhMy.WeatherSystem.Data;
+using CryingOnion.OhMy.WeatherSystem.Utility;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using CryingOnion.OhMy.WeatherSystem.Utility;
-using CryingOnion.OhMy.WeatherSystem.Data;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace CryingOnion.OhMy.WeatherSystem.Core
@@ -40,13 +40,16 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
         [Tooltip("Adds an offset to the local temperature. Useful for adding biomes or climate change by location or elevation")]
         [FormerlySerializedAs("localTempratureFilter")]
         public float localTemperatureFilter;
+
         [Tooltip("Adds an offset to the local precipitation. Useful for adding biomes or climate change by location or elevation")]
         public float localPrecipitationFilter;
 
         [FormerlySerializedAs("currentTemprature")]
         public float currentTemperature;
+
         [FormerlySerializedAs("currentTempratureCelsius")]
         public float currentTemperatureCelsius;
+
         public float currentPrecipitation;
 
         public OMWSWeatherProfile currentWeather;
@@ -312,6 +315,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                 i.profile = WeightedRandom(GetNextWeatherArray(forecastProfile.profilesToForecast.ToArray(), currentForecast.Last().profile.forecastNext, currentForecast.Last().profile.forecastModifierMethod));
             else
                 i.profile = WeightedRandom(forecastProfile.profilesToForecast.ToArray());
+
             i.weatherProfileDuration = Random.Range(i.profile.weatherTime.x, i.profile.weatherTime.y);
 
             i.startTicks = weatherTimer + weatherSphere.calendar.currentTicks;
@@ -423,13 +427,13 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
             return i;
         }
 
-        OMWSWeatherProfile[] SubtractiveArray(OMWSWeatherProfile[] total, OMWSWeatherProfile[] subtraction) =>
+        private OMWSWeatherProfile[] SubtractiveArray(OMWSWeatherProfile[] total, OMWSWeatherProfile[] subtraction) =>
             total.ToList().Except(subtraction.ToList()).ToArray();
 
-        OMWSWeatherProfile[] IntersectionArray(OMWSWeatherProfile[] total, OMWSWeatherProfile[] intersection) =>
+        private OMWSWeatherProfile[] IntersectionArray(OMWSWeatherProfile[] total, OMWSWeatherProfile[] intersection) =>
             intersection.ToList().Except(intersection.ToList().Except(total.ToList())).ToArray();
 
-        OMWSWeatherProfile[] GetNextWeatherArray(OMWSWeatherProfile[] total, OMWSWeatherProfile[] exception, OMWSWeatherProfile.ForecastModifierMethod modifierMethod)
+        private OMWSWeatherProfile[] GetNextWeatherArray(OMWSWeatherProfile[] total, OMWSWeatherProfile[] exception, OMWSWeatherProfile.ForecastModifierMethod modifierMethod)
         {
             switch (modifierMethod)
             {

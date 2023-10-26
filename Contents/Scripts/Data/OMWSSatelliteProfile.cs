@@ -1,13 +1,9 @@
 using UnityEngine;
-using CryingOnion.OhMy.WeatherSystem.Utility;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace CryingOnion.OhMy.WeatherSystem.Data
 {
     [System.Serializable]
-    [CreateAssetMenu(menuName = "CryingOnion/Oh My Weather System/Satellite Profile", order = 361)]
+    [CreateAssetMenu(menuName = "Crying Onion/Oh My Weather System/Satellite Profile", order = 361)]
     public class OMWSSatelliteProfile : ScriptableObject
     {
         public GameObject satelliteReference;
@@ -30,85 +26,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         public bool changedLastFrame;
         public bool open;
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSSatelliteProfile))]
-    [CanEditMultipleObjects]
-    public class OMWSSatelliteProfileEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            serializedObject.Update();
-
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteReference"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("size"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("distance"));
-
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("useLight"));
-
-            EditorGUI.BeginDisabledGroup(!serializedObject.FindProperty("useLight").boolValue);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("flare"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("lightColorMultiplier"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("castShadows"));
-            EditorGUI.EndDisabledGroup();
-
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteRotateSpeed"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteRotateAxis"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("initialRotation"));
-
-            EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("orbitOffset"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteDirection"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("satellitePitch"));
-
-            if (serializedObject.hasModifiedProperties)
-                serializedObject.FindProperty("changedLastFrame").boolValue = true;
-
-            serializedObject.ApplyModifiedProperties();
-        }
-
-        public void NestedGUI()
-        {
-            serializedObject.Update();
-
-            serializedObject.FindProperty("open").boolValue = EditorGUILayout.BeginFoldoutHeaderGroup(serializedObject.FindProperty("open").boolValue, $"    {target.name}", OMWSEditorUtilities.FoldoutStyle());
-            EditorGUILayout.EndFoldoutHeaderGroup();
-
-            if (serializedObject.FindProperty("open").boolValue)
-            {
-                EditorGUI.indentLevel++;
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteReference"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("size"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("distance"));
-                EditorGUILayout.Space();
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("useLight"));
-                EditorGUI.indentLevel++;
-                EditorGUI.BeginDisabledGroup(!serializedObject.FindProperty("useLight").boolValue);
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("flare"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("lightColorMultiplier"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("castShadows"));
-                EditorGUI.indentLevel--;
-                EditorGUI.EndDisabledGroup();
-                EditorGUILayout.Space();
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteRotateSpeed"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteRotateAxis"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("initialRotation"));
-                EditorGUILayout.Space();
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("orbitOffset"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("satelliteDirection"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("satellitePitch"));
-
-                if (serializedObject.hasModifiedProperties)
-                    serializedObject.FindProperty("changedLastFrame").boolValue = true;
-
-                EditorGUI.indentLevel--;
-            }
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-
-#endif
 }
