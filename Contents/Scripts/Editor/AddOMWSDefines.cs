@@ -8,6 +8,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
     public class AddOMWSDefines : Editor
     {
         const string OMWS_WEATHER_URP = "OMWS_WEATHER_URP";
+        const string OMWS_WEATHER_FMOD = "OMWS_WEATHER_FMOD";
 
         /// <summary>
         /// Symbols that will be added to the editor
@@ -25,6 +26,48 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
 
             allDefines.AddRange(Symbols.Except(allDefines));
 
+            PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, string.Join(";", allDefines.ToArray()));
+        }
+
+        [MenuItem("Crying Onion/Oh My Weather System/Enable FMOD Support", true)]
+        static bool ValidateOMWSEnableFMODSupport()
+        {
+            string definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+
+            List<string> allDefines = definesString.Split(';').ToList();
+
+            return !allDefines.Contains(OMWS_WEATHER_FMOD);
+        }
+
+        [MenuItem("Crying Onion/Oh My Weather System/Enable FMOD Support")]
+        static void OMWSEnableFMODSupport()
+        {
+            string definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+
+            List<string> allDefines = definesString.Split(';').ToList();
+
+            allDefines.Add(OMWS_WEATHER_FMOD);
+            PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, string.Join(";", allDefines.ToArray()));
+        }
+
+        [MenuItem("Crying Onion/Oh My Weather System/Disable FMOD Support", true)]
+        static bool ValidateOMWSDisableFMODSupport()
+        {
+            string definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+
+            List<string> allDefines = definesString.Split(';').ToList();
+
+            return allDefines.Contains(OMWS_WEATHER_FMOD);
+        }
+
+        [MenuItem("Crying Onion/Oh My Weather System/Disable FMOD Support")]
+        static void OMWSDisableFMODSupport()
+        {
+            string definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+
+            List<string> allDefines = definesString.Split(';').ToList();
+
+            allDefines.Remove(OMWS_WEATHER_FMOD);
             PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, string.Join(";", allDefines.ToArray()));
         }
     }

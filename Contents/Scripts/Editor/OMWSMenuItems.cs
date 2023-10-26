@@ -8,7 +8,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
 {
     public class OMWSMenuItems : MonoBehaviour
     {
-        [MenuItem("CryingOnion/Oh My Weather System/Create OMWS Volume")]
+        [MenuItem("Crying Onion/Oh My Weather System/Create OMWS Volume")]
         static void OMWSVolumeCreation()
         {
             Camera view = SceneView.lastActiveSceneView.camera;
@@ -23,7 +23,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
             Selection.activeGameObject = i;
         }
 
-        [MenuItem("CryingOnion/Oh My Weather System/Create OMWS FX Block Zone")]
+        [MenuItem("Crying Onion/Oh My Weather System/Create OMWS FX Block Zone")]
         static void OMWSBlockZoneCreation()
         {
             Camera view = SceneView.lastActiveSceneView.camera;
@@ -38,7 +38,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
             Selection.activeGameObject = i;
         }
 
-        [MenuItem("CryingOnion/Oh My Weather System/Create OMWS Biome")]
+        [MenuItem("Crying Onion/Oh My Weather System/Create OMWS Biome")]
         static void OMWSBiomeCreation()
         {
             Camera view = SceneView.lastActiveSceneView.camera;
@@ -52,10 +52,10 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
             Selection.activeGameObject = i;
         }
 
-        [MenuItem("CryingOnion/Oh My Weather System/Toggle Tooltips")]
+        [MenuItem("Crying Onion/Oh My Weather System/Toggle Tooltips")]
         static void OMWSToggleTooltips() => EditorPrefs.SetBool("OMWS_Tooltips", !EditorPrefs.GetBool("OMWS_Tooltips"));
 
-        [MenuItem("CryingOnion/Oh My Weather System/Setup Scene (No Modules)", false, 1)]
+        [MenuItem("Crying Onion/Oh My Weather System/Setup Scene (No Modules)", false, 1)]
         public static void OMWSSetupSceneSimple()
         {
             if (FindObjectOfType<OMWSWeather>())
@@ -89,7 +89,6 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
                 List<string> path = new List<string>();
                 path.Add("Assets/Distant Lands/OMWS Weather/Post FX/");
 
-
                 GameObject i = new GameObject();
 
                 i.name = "Post FX Volume";
@@ -109,18 +108,18 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
             weatherSphere.name = "OMWS Weather Sphere";
         }
         
-        [MenuItem("CryingOnion/Oh My Weather System/Setup Scene", false, 1)]
+        [MenuItem("Crying Onion/Oh My Weather System/Setup Scene", false, 1)]
         public static void OMWSSetupScene()
         {
             if (FindObjectOfType<OMWSWeather>())
             {
-                EditorUtility.DisplayDialog("OMWS:Weather", "You already have a OMWS:Weather system in your scene!", "Ok");
+                EditorUtility.DisplayDialog("OMWS: Weather", "You already have a OMWS: Weather system in your scene!", "Ok");
                 return;
             }
 
             if (!Camera.main)
             {
-                EditorUtility.DisplayDialog("OMWS:Weather", "You need a main camera in your scene to setup for OMWS:Weather!", "Ok");
+                EditorUtility.DisplayDialog("OMWS: Weather", "You need a main camera in your scene to setup for OMWS: Weather!", "Ok");
                 return;
             }
 
