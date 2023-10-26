@@ -1,6 +1,7 @@
 ﻿using CryingOnion.OhMy.WeatherSystem.Core;
 using CryingOnion.OhMy.WeatherSystem.Utility;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,8 +10,11 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
     public class OMWSMenuItems : MonoBehaviour
     {
         [MenuItem("Crying Onion/Oh My Weather System/Import Editable Resources")]
-        static void OMWSImportEditableResources() =>
-            AssetDatabase.ImportPackage("Pakages/com.cryingonion.omws/OMWSPackage.unitypackage", true);
+        static void OMWSImportEditableResources()
+        {
+            string absolute = Path.GetFullPath("Packages/com.cryingonion.omws/OMWSPackage.unitypackage");
+            AssetDatabase.ImportPackage(absolute, true);
+        }
 
         [MenuItem("Crying Onion/Oh My Weather System/Create OMWS Volume")]
         static void OMWSVolumeCreation()
