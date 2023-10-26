@@ -8,6 +8,10 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
 {
     public class OMWSMenuItems : MonoBehaviour
     {
+        [MenuItem("Crying Onion/Oh My Weather System/Import Editable Resources")]
+        static void OMWSImportEditableResources() =>
+            AssetDatabase.ImportPackage("Pakages/com.cryingonion.omws/OMWSPackage.unitypackage", true);
+
         [MenuItem("Crying Onion/Oh My Weather System/Create OMWS Volume")]
         static void OMWSVolumeCreation()
         {
@@ -107,7 +111,7 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
 
             weatherSphere.name = "OMWS Weather Sphere";
         }
-        
+
         [MenuItem("Crying Onion/Oh My Weather System/Setup Scene", false, 1)]
         public static void OMWSSetupScene()
         {
