@@ -1755,7 +1755,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
                         break;
                     case (0.75f):
                         events.RaiseOnEvening();
-                        events.timeToCheckFor = 1;
+                        events.timeToCheckFor = 1.0f;
                         break;
                     case (1):
                         events.RaiseOnMidnight();
