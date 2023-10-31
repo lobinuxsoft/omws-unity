@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace CryingOnion.OhMy.WeatherSystem.Core
 {
@@ -24,22 +21,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Core
 
         public virtual void DisableModule() { }
     }
-
-#if UNITY_EDITOR
-    public class OMWSModuleEditor : Editor
-    {
-        void OnEnable() { }
-
-        public virtual GUIContent GetGUIContent() => new GUIContent();
-
-        public override void OnInspectorGUI() { }
-
-        public virtual void DisplayInOMWSWindow()
-        {
-            serializedObject.Update();
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-#endif
 }
