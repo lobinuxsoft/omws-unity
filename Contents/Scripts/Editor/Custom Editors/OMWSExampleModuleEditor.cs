@@ -1,23 +1,9 @@
-using UnityEngine;
-using CryingOnion.OhMy.WeatherSystem.Core;
-#if UNITY_EDITOR
+﻿using CryingOnion.OhMy.WeatherSystem.Module;
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace CryingOnion.OhMy.WeatherSystem.Module
+namespace CryingOnion.OhMy.WeatherSystem.EditorScript
 {
-    public class OMWSExampleModule : OMWSModule
-    {
-        /*
-        __________________________________________________________________
-
-        This script shows an example of an empty module that you can use as a
-        base for creating your own custom modules!
-        _____________________________________________________________________
-        */
-    }
-
-#if UNITY_EDITOR
     [CustomEditor(typeof(OMWSExampleModule))]
     [CanEditMultipleObjects]
     public class OMWSExampleModuleEditor : OMWSModuleEditor
@@ -39,5 +25,4 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             serializedObject.ApplyModifiedProperties();
         }
     }
-#endif
 }

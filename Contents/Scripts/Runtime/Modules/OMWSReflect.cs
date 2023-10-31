@@ -1,8 +1,5 @@
-using UnityEngine;
 using CryingOnion.OhMy.WeatherSystem.Core;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using UnityEngine;
 
 namespace CryingOnion.OhMy.WeatherSystem.Module
 {
@@ -97,35 +94,5 @@ namespace CryingOnion.OhMy.WeatherSystem.Module
             reflectionCamera.depth = -50;
             reflectionCamera.enabled = false;
         }
-
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(OMWSReflect))]
-    [CanEditMultipleObjects]
-    public class OMWSReflectEditor : OMWSModuleEditor
-    {
-        OMWSReflect reflect;
-
-        public override GUIContent GetGUIContent() =>
-            new GUIContent("", (Texture)Resources.Load("Reflections"), "Reflections: Sets up a cubemap for reflections with OMWS.");
-
-        void OnEnable() { }
-
-        public override void DisplayInOMWSWindow()
-        {
-            if (reflect == null)
-                reflect = (OMWSReflect)target;
-
-            serializedObject.Update();
-
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("framesBetweenRenders"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("reflectionCubemap"));
-
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("layerMask"));
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
-#endif
 }

@@ -1,5 +1,4 @@
-﻿using CryingOnion.OhMy.WeatherSystem.Core;
-using CryingOnion.OhMy.WeatherSystem.Module;
+﻿using CryingOnion.OhMy.WeatherSystem.Module;
 using CryingOnion.OhMy.WeatherSystem.Utility;
 using UnityEditor;
 using UnityEngine;
