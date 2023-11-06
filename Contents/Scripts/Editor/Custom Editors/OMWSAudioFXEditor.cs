@@ -14,7 +14,11 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
         {
             serializedObject.Update();
 
+#if OMWS_WEATHER_FMOD
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("eventRef"));
+#else
             EditorGUILayout.PropertyField(serializedObject.FindProperty("clip"));
+#endif
             EditorGUILayout.PropertyField(serializedObject.FindProperty("maximumVolume"));
             EditorGUILayout.Space();
             EditorGUILayout.PropertyField(serializedObject.FindProperty("transitionTimeModifier"));
@@ -32,7 +36,12 @@ namespace CryingOnion.OhMy.WeatherSystem.EditorScript
 
             serializedObject.Update();
 
+#if OMWS_WEATHER_FMOD
+            EditorGUI.PropertyField(propPosA, serializedObject.FindProperty("eventRef"));
+#else
             EditorGUI.PropertyField(propPosA, serializedObject.FindProperty("clip"));
+#endif
+
             EditorGUI.PropertyField(propPosB, serializedObject.FindProperty("maximumVolume"));
             EditorGUI.PropertyField(propPosD, serializedObject.FindProperty("transitionTimeModifier"));
 

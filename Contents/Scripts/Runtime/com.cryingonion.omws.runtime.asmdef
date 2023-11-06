@@ -1,3 +1,16 @@
 {
-	"name": "com.cryingonion.omws"
+    "name": "com.cryingonion.omws",
+    "rootNamespace": "",
+    "references": [
+        "FMODUnity"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
