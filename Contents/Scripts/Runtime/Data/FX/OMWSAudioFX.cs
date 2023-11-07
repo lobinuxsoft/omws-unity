@@ -12,7 +12,7 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
 #if OMWS_WEATHER_FMOD
 
         [SerializeField] private FMODUnity.EventReference eventRef;
-        private FMOD.Studio.EventInstance m_EventInstance;
+        private FMODUnity.StudioEventEmitter runtimeRef;
 
 #else
 
@@ -27,16 +27,19 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         {
 #if OMWS_WEATHER_FMOD
 
-            if (m_EventInstance.isValid())
+            if(eventRef.IsNull)
+                return;
+
+            if (!runtimeRef)
                 if (InitializeEffect(VFXMod) == false)
                     return;
 
-            m_EventInstance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+            runtimeRef.IsPlaying();
 
-            if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-                m_EventInstance.start();
+            if (!runtimeRef.IsPlaying())
+                runtimeRef.Play();
 
-            m_EventInstance.setVolume(maximumVolume * VFXMod.audioManager.volumeMultiplier);
+            runtimeRef.EventInstance.setVolume(maximumVolume * VFXMod.audioManager.volumeMultiplier);
 
 #else
             if (!runtimeRef)
@@ -61,22 +64,23 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         {
 #if OMWS_WEATHER_FMOD
 
-            if (m_EventInstance.isValid())
+            if (eventRef.IsNull)
+                return;
+
+            if (!runtimeRef)
                 if (InitializeEffect(VFXMod) == false)
                     return;
 
-            m_EventInstance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
-
             if (vol != 0)
             {
-                if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-                    m_EventInstance.start();
+                if (!runtimeRef.IsPlaying() && runtimeRef.isActiveAndEnabled)
+                    runtimeRef.Play();
 
-                m_EventInstance.setVolume(Mathf.Clamp01(transitionTimeModifier.Evaluate(vol)) * maximumVolume * VFXMod.audioManager.volumeMultiplier);
+                runtimeRef.EventInstance.setVolume(Mathf.Clamp01(transitionTimeModifier.Evaluate(vol)) * maximumVolume * VFXMod.audioManager.volumeMultiplier);
             }
             else
             {
-                m_EventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                Destroy(runtimeRef.gameObject);
                 return;
             }
 
@@ -112,16 +116,17 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
         {
 #if OMWS_WEATHER_FMOD
 
-            if (!m_EventInstance.isValid())
+            if (eventRef.IsNull)
                 return;
 
-            m_EventInstance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+            if (!runtimeRef)
+                return;
 
-            if (state == FMOD.Studio.PLAYBACK_STATE.PLAYING)
-                m_EventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            if (runtimeRef.IsPlaying())
+                runtimeRef.Stop();
 
-            m_EventInstance.release();
-            m_EventInstance.clearHandle();
+            runtimeRef.EventInstance.setVolume(0);
+            Destroy(runtimeRef.gameObject);
 
 #else
 
@@ -150,7 +155,17 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
 
 #if OMWS_WEATHER_FMOD
 
-            m_EventInstance = FMODUnity.RuntimeManager.CreateInstance(eventRef);
+            if (eventRef.IsNull)
+                return false;
+
+            runtimeRef = new GameObject().AddComponent<FMODUnity.StudioEventEmitter>();
+            runtimeRef.gameObject.name = name;
+            runtimeRef.transform.parent = VFX.audioManager.parent;
+            runtimeRef.EventReference = eventRef;
+            runtimeRef.AllowFadeout = true;
+            runtimeRef.Preload = true;
+            runtimeRef.EventInstance.setVolume(0);
+
 #else
 
             runtimeRef = new GameObject().AddComponent<AudioSource>();
