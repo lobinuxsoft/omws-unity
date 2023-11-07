@@ -1,7 +1,7 @@
 {
   "name": "com.cryingonion.omws",
   "displayName": "Oh My Weather System",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "dependencies": {},
   "enableLockFile": true,
   "resolutionStrategy": "highestMinor",
