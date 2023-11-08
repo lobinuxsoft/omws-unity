@@ -44,3 +44,7 @@
 >           - Wheather FX Audio Source.prefab
 >         - OMWS Weather Mixer.mixer
 >         - Profiles (Complete Folder)
+
+> ## [1.0.6] - 08/11/2023
+> ### Change
+> - Removed reflection cubemap from OMWSPackage

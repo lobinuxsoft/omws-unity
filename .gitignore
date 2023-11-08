@@ -73,3 +73,47 @@ crashlytics-build.properties
 
 # Force to include
 !OMWSPackage.unitypackage
+
+Contents/Materials/
+
+Contents/Prefabs/
+
+Contents/Resources/Materials/
+
+Contents/Resources/OMWS Prefabs/Cutout Physical Moon.prefab
+
+Contents/Resources/OMWS Prefabs/Cutout Physical Moon.prefab.meta
+
+Contents/Resources/OMWS Prefabs/Physical Moon.prefab
+
+Contents/Resources/OMWS Prefabs/Physical Moon.prefab.meta
+
+Contents/Resources/OMWS Prefabs/Satellite.prefab
+
+Contents/Resources/OMWS Prefabs/Satellite.prefab.meta
+
+Contents/Resources/OMWS Prefabs/Sprite Based Moon Example.prefab
+
+Contents/Resources/OMWS Prefabs/Sprite Based Moon Example.prefab.meta
+
+Contents/Resources/OMWS Prefabs/Thunder And Lightning.prefab
+
+Contents/Resources/OMWS Prefabs/Thunder And Lightning.prefab.meta
+
+Contents/Resources/OMWS Prefabs/Weather FX Audio Source.prefab
+
+Contents/Resources/OMWS Prefabs/Weather FX Audio Source.prefab.meta
+
+Contents/Resources/Materials.meta
+
+Contents/Resources/OMWS Weather Mixer.mixer
+
+Contents/Resources/OMWS Weather Mixer.mixer.meta
+
+Contents/Resources/Profiles.meta
+
+Contents/Resources/Profiles/
+
+Contents/Materials.meta
+
+Contents/Prefabs.meta
