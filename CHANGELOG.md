@@ -48,3 +48,7 @@
 > ## [1.0.6] - 08/11/2023
 > ### Change
 > - Removed reflection cubemap from OMWSPackage
+
+> ## [1.0.7] - 03/03/2024
+> ### Fix
+> - FMOD integration bug fix

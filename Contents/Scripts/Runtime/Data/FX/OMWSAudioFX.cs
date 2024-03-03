@@ -1,5 +1,6 @@
 using CryingOnion.OhMy.WeatherSystem.Core;
 using CryingOnion.OhMy.WeatherSystem.Module;
+using FMODUnity;
 using UnityEngine;
 
 namespace CryingOnion.OhMy.WeatherSystem.Data
@@ -161,6 +162,8 @@ namespace CryingOnion.OhMy.WeatherSystem.Data
             runtimeRef = new GameObject().AddComponent<FMODUnity.StudioEventEmitter>();
             runtimeRef.gameObject.name = name;
             runtimeRef.transform.parent = VFX.audioManager.parent;
+            runtimeRef.PlayEvent = EmitterGameEvent.ObjectEnable;
+            runtimeRef.StopEvent = EmitterGameEvent.ObjectDisable;
             runtimeRef.EventReference = eventRef;
             runtimeRef.AllowFadeout = true;
             runtimeRef.Preload = true;
